@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from home.models import Topbar
 
 """
 changed earlier today
@@ -34,10 +35,11 @@ def profile(request):
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-
+    topbars = Topbar.objects.order_by('-reload').filter(is_published=True)[:1]
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'topbars': topbars
     }
 
     return render(request, 'users/profile.html', context)

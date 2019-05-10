@@ -21,3 +21,15 @@ class Team(models. Model):
 
     def __str__(self):
         return self.phone
+
+class Teamhead(models.Model):
+    title = models.CharField(max_length=100)
+    team_header = models.ImageField(upload_to='home_header/', blank=True, null=True)
+    logo_short_name = models.CharField(max_length=20, blank=True, null=True)
+    motivational_statement = models.CharField(max_length=20, blank=True, null=True) 
+    reload = models.DateTimeField(default=timezone.now)
+    is_published = models.BooleanField(default=True)
+    
+    def __str__(self):
+        return self.title
+

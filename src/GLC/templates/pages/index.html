@@ -8,15 +8,78 @@
 
 
 <!-- Image header -->
+{% if heads %}
+{% for head in heads %}
   <header class="w3-display-container w3-wide" id="home">
-    <img class="w3-image" src="{% static 'img/slider-image3.jpg' %}" alt="Rehabpic" width="1600" height="1060">
+  
+    <img class="w3-image" src="{{ head.home_header.url }}" alt="{{ head.title }}" width="1600" height="1060">
+  
     <div class="w3-display-left w3-padding-large">
-      <h1 class="w3-text-white">GLC</h1>
-      <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>IT IS POSSIBLE</b></h1>
+      <h1 class="w3-text-white">{{ head.logo_short_name }}</h1>
+      <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>
+        {{ head.motivational_statement }}</b></h1>
       <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
     </div>
   </header>
-
+  {% endfor %}
+  {% endif %}
+	<!-- start service -->
+	<section id="service">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center wow bounceIn">
+					<h2>Services</h2>
+					<hr>
+					<h4>we specialize in web and mobile</h4>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="media">
+						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
+							<i class="fa fa-laptop"></i>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">Website Re-designed</h3>
+							<p>Workforce HTML CSS Template is a mobile friendly site design layout with animated transitions. You can feel free to download and edit this for your sites.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="media">
+						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
+							<i class="fa fa-android"></i>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">New Mobile App</h3>
+							<p>Please spread a word to your friends about templatemo site. It would be helpful. Credit goes to <a rel="nofollow noopener" href="https://pixabay.com">Pixabay</a> for images used in this template.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="media">
+						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
+							<i class="fa fa-paper-plane"></i>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">Digital Marketing</h3>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="media">
+						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
+							<i class="fa fa-html5"></i>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">Coding HTML5 &amp; CSS3</h3>
+							<p>This is a CSS layout with Bootstrap v3.3.4 kit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end service -->
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
   <h3 class="w3-center">ABOUT THE GLC</h3>

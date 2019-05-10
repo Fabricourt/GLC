@@ -13,14 +13,23 @@
 
 
 <!-- Image header -->
-  <header class="w3-display-container w3-wide" id="home">
-    <img class="w3-image" src="{% static 'img/about-img2.jpg' %}" alt="Rehabpic" width="1600" height="1060">
-    <div class="w3-display-left w3-padding-large">
-      <h1 class="w3-text-white">GLC</h1>
-      <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>IT IS POSSIBLE</b></h1>
-      <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
-    </div>
-  </header>
+
+{% if teamheads %}
+{% for teamhead in teamheads %}
+<header class="w3-display-container w3-wide" id="home">
+
+  <img class="w3-image" src="{{ teamhead.team_header.url }}" alt="{{ head.title }}" width="1600" height="1060">
+
+  <div class="w3-display-left w3-padding-large">
+    <h1 class="w3-text-white">{{ teamhead.logo_short_name }}</h1>
+    <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>
+      {{ teamhead.motivational_statement }}</b></h1>
+    <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
+  </div>
+</header>
+{% endfor %}
+{% endif %}
+  
 
 <section>
     <div class="w3-container w3-margin-top w3-white ">

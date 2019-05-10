@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils import timezone
-from ckeditor.fields import RichTextField
+
 
 # Create your models here.
 class Topbar(models.Model):
     title = models.CharField(max_length=100)
-    statement = RichTextField(blank=True, null=True)
+    statement = models.CharField(max_length=100, blank=True, null=True)
     reload = models.DateTimeField(default=timezone.now)
     is_published = models.BooleanField(default=True)
     
@@ -14,6 +14,8 @@ class Topbar(models.Model):
 class Head(models.Model):
     title = models.CharField(max_length=100)
     home_header = models.ImageField(upload_to='home_header/', blank=True, null=True)
+    logo_short_name = models.CharField(max_length=20, blank=True, null=True)
+    motivational_statement = models.CharField(max_length=20, blank=True, null=True) 
     reload = models.DateTimeField(default=timezone.now)
     is_published = models.BooleanField(default=True)
     
