@@ -27,7 +27,7 @@ class header(models.Model):
 class category(models.Model):
     title  = models.CharField(max_length=120)
     image1   = models.ImageField(upload_to='image1/', blank=True, null=True)
-    description = RichTextField(null=True, blank=True)
+    statements = models.CharField(max_length=200, null=True, blank=True)
     reload = models.DateTimeField(default=timezone.now)
     is_published = models.BooleanField(default=True)
 

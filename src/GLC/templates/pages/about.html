@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 {% block title %} | About {% endblock %}
 
@@ -30,17 +29,7 @@
 </div>
     {% endfor %}
 
-    {% for category in categorys %}
-    
-    <div class="w3-content w3-container w3-padding-large">
-      <h1 class="w3-center">{{ category.title }}</h1><br>
-    <hr>
-            <img src="{{ category.image1.url }}" alt="category" width="100%" height="400" class="w3-right w3-card-4 w3-hover-greyscale">
-            <p class="w3-large">{{ category.description|safe }}</p>
-      
-    </div>
-    </div>
-    {% endfor %}
+  
 
 {% endif %}
 

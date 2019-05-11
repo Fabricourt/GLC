@@ -1,34 +1,36 @@
 {% load static %}
 <!-- Navbar (sit on top) -->
 <div class="w3-top ">
-    <div class="w3-bar w3-white w3-card" id="myNavbar">
-      <a href="/" class="w3-bar-item  w3-wide  w3-hover-red w3-highway-blue" style="text-decoration:none;">GLC</a>
+    <div class="w3-bar w3-white" id="myNavbar">
+      <a href="/" class="w3-bar-item  w3-wide w3-hover-white w3-card w3-highway-blue" style="text-decoration:none;"><i class="fa fa-home  "></i><span><b>GLC</b></span></a>
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
-        <a href="{% url 'about' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;">ABOUT</a>
+        <a href="/about" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;">ABOUT</a>
         <a href="/team" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-users w3-text-red"></i> TEAM</a>
-        <a href="#work" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-red"></i> WORK</a>
+        <a href="/gallery" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-red"></i> GALLERY</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-envelope w3-text-red"></i> CONTACT</a>
         
         {% if user.is_authenticated %}
-        <a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o w3-large w3-text-red"></i> PROFILE</a>
+        <a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o  w3-text-red"></i> PROFILE</a>
         <a href="javascript:{document.getElementById('logout').submit()}" style="text-decoration:none;" class="w3-bar-item w3-highway-red w3-hover-text-white ">
-          <i class="fas fa-sign-out-alt"></i> SIGNOUT
+           SIGNOUT
         </a>
         <form action="{% url 'logout' %}" method="POST" id="logout">
           {% csrf_token %}
           <input type="hidden">
         </form>
         {% else %}
-        <a href="{% url 'register' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-plus w3-large w3-text-red"></i> SIGNUP</a>
-        <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-sign-in w3-large w3-text-red"></i> SIGN IN</a>
+        <a href="{% url 'register' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-plus  w3-text-red"></i> SIGNUP</a>
+        <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-sign-in w3-text-red"></i> SIGN IN</a>
         {% endif %}
+        
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
   
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-white w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
         <i class="fa fa-bars w3-large w3-blue"></i>
       </a>
+      
     </div>
   </div>
 

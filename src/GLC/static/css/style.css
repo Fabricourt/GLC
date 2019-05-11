@@ -20,82 +20,200 @@ hr
   padding: 16px;
 }
 
-/*---------------------------------------
-    MENU              
------------------------------------------*/
-
-.custom-navbar {
-  background: #ffffff;
-  border-top: 5px solid #e2111b;
-  border-bottom: 0;
-  -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
-  padding: 12px 0;
-  margin-bottom: 0;
-  padding: 0;
+/***** Features *****/
+#templatemo_features {
+  background: #ffffff url(../images/pattern_bg.png) fixed;
+  padding-bottom: 130px;
 }
-
-.custom-navbar .navbar-brand {
-  color: #454545;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 40px;
-}
-
-.custom-navbar .navbar-nav.navbar-nav-first {
-  margin-left: 8em;
-}
-
-.custom-navbar .navbar-nav.navbar-right li a {
-  padding-right: 12px;
-  padding-left: 12px;
-}
-
-.custom-navbar .navbar-nav.navbar-right li a .fa {
-  background: #db1828;
-  border-radius: 100%;
-  color: #ffffff;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+#templatemo_features p {
+  padding-bottom: 30px;
   text-align: center;
-  display: inline-block;
-  margin-right: 5px;
+}
+#templatemo_features .feature-box {
+  transition: all .5s;
+  background: transparent;
+  padding: 40px 0 40px 0;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+#templatemo_features .feature-box:hover {
+  padding: 0;
+  color: #fff;
+}
+#templatemo_features .feature-box .feature-box-inner {
+  box-shadow: inset 0px 0px 0 10px #cecece;
+  border-bottom: 10px solid #cecece;
+  border-top: 10px solid #cecece;
+  transition: all .5s;
+  background: #fff;
+  padding: 20px;
+  margin: auto;
+}
+#templatemo_features .feature-box:hover .feature-box-inner {
+  box-shadow: inset 0px 0px 0px 0px #cecece;
+  border-bottom: 10px solid #ceced2;
+  border-top: 10px solid #ceced2;
+  padding: 60px 20px 60px 20px;
+  background: #87794e;
+  opacity: 0.9;
+}
+#templatemo_features .feature-box p {
+  max-width: 250px;
+  min-height: 260px;
+  line-height: 32px;
+  padding-top: 30px;
+  font-size: 18px;
+  margin: auto;
+}
+#templatemo_features .feature-box .feature-box-icon {
+  border-radius: 0px;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 56px;
+  color:#ceced2;
 }
 
-.custom-navbar .nav li a {
-  line-height: 40px;
-  color: #575757;
-  padding-right: 22px;
-  padding-left: 22px;
+h1 {font-family: "Montserrat", sans-serif}
+       
+.w3-row-padding img {margin-bottom: 12px}
+
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
 }
 
-.custom-navbar .navbar-nav > li > a:hover,
-.custom-navbar .navbar-nav > li > a:focus {
-  background-color: transparent;
+* {
+  box-sizing: border-box;
 }
 
-.custom-navbar .nav li a:hover {
-  background-color: #db1d1d;
-  color: #ffffff;
+.row > .column {
+  padding: 4 4px;
 }
 
-.custom-navbar .nav li.active > a {
-  background-color: #d41b24;
-  color: #ffffff;
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.custom-navbar .navbar-toggle {
-  border: none;
-  padding-top: 10px;
+.column {
+  float: left;
+  width: 30.065%;
 }
 
-.custom-navbar .navbar-toggle {
-  background-color: transparent;
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
 }
 
-.custom-navbar .navbar-toggle .icon-bar {
-  background: #252525;
-  border-color: transparent;
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

@@ -8,153 +8,107 @@
 
 
 <!-- Image header -->
+
+						
 {% if heads %}
 {% for head in heads %}
-  <header class="w3-display-container w3-wide" id="home">
+
+  <header class="w3-display-container w3-card-4 w3-shadow w3-wide" id="home">
+     
+    <img class="w3-image w3-shadow" src="{{ head.home_header.url }}" alt="{{ head.title }}" width="100%" height="1060">
   
-    <img class="w3-image" src="{{ head.home_header.url }}" alt="{{ head.title }}" width="1600" height="1060">
-  
-    <div class="w3-display-left w3-padding-large">
+    <div class="w3-display-bottomleft w3-hide-small w3-hide-medium w3-padding-large">
       <h1 class="w3-text-white">{{ head.logo_short_name }}</h1>
-      <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>
+      <h1 class=" w3-text-white w3-hide-small"><b>
         {{ head.motivational_statement }}</b></h1>
-      <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
+      <h6><button class="w3-button w3-hide w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
     </div>
   </header>
+
   {% endfor %}
   {% endif %}
-	<!-- start service -->
-	<section id="service">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center wow bounceIn">
-					<h2>Services</h2>
-					<hr>
-					<h4>we specialize in web and mobile</h4>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="media">
-						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
-							<i class="fa fa-laptop"></i>
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">Website Re-designed</h3>
-							<p>Workforce HTML CSS Template is a mobile friendly site design layout with animated transitions. You can feel free to download and edit this for your sites.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="media">
-						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
-							<i class="fa fa-android"></i>
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">New Mobile App</h3>
-							<p>Please spread a word to your friends about templatemo site. It would be helpful. Credit goes to <a rel="nofollow noopener" href="https://pixabay.com">Pixabay</a> for images used in this template.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="media">
-						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
-							<i class="fa fa-paper-plane"></i>
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">Digital Marketing</h3>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="media">
-						<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
-							<i class="fa fa-html5"></i>
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">Coding HTML5 &amp; CSS3</h3>
-							<p>This is a CSS layout with Bootstrap v3.3.4 kit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- end service -->
-<!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">ABOUT THE GLC</h3>
-  <p class="w3-center w3-large">Key features of our Organization</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
+ 
+<!-- Container (About Section) -->
+
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ABOUT ME</h3>
+  <p class="w3-center"><em>I love photography</em></p>
+  <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
+      <img src="{% static 'img/team1.jpg' %}" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-hide-small w3-padding-large">
+      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+</div>	
+<!-- Features -->
+<section class="w3-white " id="templatemo_features">
+    <div class="container-fluid w3-padding-large">
+    
+          
+            {% for category in categorys %}
+            <div class="col-sm-6 col-lg-3 feature-box">
+                <div class="feature-box-inner">
+                    <div class="feature-box-icon ">
+                       <i class="fa fa-pagelines"></i>
+                    </div>
+                    <p>
+                       {{ category.statements }}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+  
+           
+    </div>
+  </section>
+   
+<div class="w3-container w3-highway-blue w3-card w3-row w3-center  w3-padding-64">
     <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Responsive</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <span class="w3-xxlarge">14+</span>
+      <br>People Helped So Far
     </div>
     <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Passion</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <span class="w3-xxlarge">55+</span>
+      <br>People In The Program
     </div>
     <div class="w3-quarter">
-      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Design</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <span class="w3-xxlarge">89+</span>
+      <br>Sponsors
     </div>
     <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Support</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <span class="w3-xxlarge">150+</span>
+      <br>Partners
     </div>
   </div>
-</div>
 
 
 
-<!-- Promo Section - "We know design" -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>We know design.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
-      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
-    </div>
-  </div>
-</div>
 
 
-<!-- Promo Section "Statistics" -->
-<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">14+</span>
-    <br>Partners
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">55+</span>
-    <br>Projects Done
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">89+</span>
-    <br>Happy Clients
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">150+</span>
-    <br>Meetings
-  </div>
-</div>
 
 
-<section class="profile">
+<section class="w3-light-grey w3-padding-64">
+    <div class=" w3-padding-large w3-container">
+        <h1 class=" w3-jumbo w3-center w3-light-grey w3-margin jumbotron">Our Team</h1>
+      </div>
 
     <div class="container">
         <div class="row">
           {% for team in teams %}
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team ">
+          <div class="col-12 col-sm-6  col-md-4 col-lg-3 w3-third">
+            <div class="our-team w3-card w3-hover-shadow ">
               <div class="picture ">
-                <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                <img class="img-fluid" src="">
               </div>
               <div class="team-content">
                 <h3 class="name">Michele Miller</h3>
@@ -171,7 +125,7 @@
           </div>
           {% endfor %}
               <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
+            <div class="our-team w3-card w3-hover-shadow">
               <div class="picture">
                 <img class="img-fluid" src="https://picsum.photos/130/130?image=839">
               </div>
@@ -190,7 +144,7 @@
             </div>
           </div>
               <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
+            <div class="our-team w3-card w3-hover-shadow">
               <div class="picture">
                 <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
               </div>
@@ -209,7 +163,7 @@
             </div>
           </div>
               <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
+            <div class="our-team w3-card w3-hover-shadow">
               <div class="picture">
                 <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
               </div>
@@ -236,160 +190,31 @@
 
 
 
-<!-- Work Section -->
+<!-- Gallery Section -->
 <div class="w3-container" style="padding:128px 16px" id="work">
-  <h3 class="w3-center">OUR WORK</h3>
-  <p class="w3-center w3-large">What we've done for people</p>
+  <h3 class="w3-center w3-padding-large w3-round w3-highway-red">OUR PICTURES</h3>
+ 
 
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_mic.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A microphone">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_phone.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A phone">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_drone.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A drone">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_sound.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Soundbox">
-    </div>
+  <div class="row w3-content" id="myGrid">
+      {% for gallery in gallerys %}
+      
+          <div class="column w3-margin w3-hover-shadow  w3-card">
+             
+                  <img src="{{ gallery.picture.url }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            
+          </div>
+      
+      {% endfor %}
+
+    
+     <a href="/gallery"><button class="btn btn-outline-danger">View More In Detail </button></a>
   </div>
 
-  <div class="w3-row-padding w3-section">
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_tablet.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tablet">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_camera.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A camera">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_typewriter.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A typewriter">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="/w3images/tech_tableturner.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tableturner">
-    </div>
-  </div>
-</div>
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
-
-<!-- Skills Section -->
-<div class="w3-container w3-light-grey w3-padding-64">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>Our Skills.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
-      tempor incididunt ut labore et dolore.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
-      tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-col m6">
-      <p class="w3-wide"><i class="fa fa-camera w3-margin-right"></i>Photography</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:90%">90%</div>
-      </div>
-      <p class="w3-wide"><i class="fa fa-desktop w3-margin-right"></i>Web Design</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:85%">85%</div>
-      </div>
-      <p class="w3-wide"><i class="fa fa-photo w3-margin-right"></i>Photoshop</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:75%">75%</div>
-      </div>
-    </div>
-  </div>
+      
 </div>
 
 
 
-<!-- Pricing Section -->
-<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
-  <h3>PRICING</h3>
-  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
-        <li class="w3-padding-16"><b>10GB</b> Storage</li>
-        <li class="w3-padding-16"><b>10</b> Emails</li>
-        <li class="w3-padding-16"><b>10</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 10</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
-        <li class="w3-padding-16"><b>50GB</b> Storage</li>
-        <li class="w3-padding-16"><b>50</b> Emails</li>
-        <li class="w3-padding-16"><b>50</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 50</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTACT</h3>
-  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
-  <div style="margin-top:48px">
-    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-    <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
-    <!-- Image of location/map -->
-    <img src="/w3images/map.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
-  </div>
-</div>
 
 
 
