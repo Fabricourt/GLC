@@ -4,30 +4,30 @@ a {
   text-decoration:none;
 }
 </style>
-  
+ 
 <footer class="section footer-classic w3-padding context-dark bg-image w3-highway-blue" >
         <div class="container">
+          {% for footer in footers %}
           <div class="row row-30">
             <div class="col-md-4 col-xl-5 ">
-              <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
-                <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
-                <!-- Rights-->
-                <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
+              <div class="pr-xl-4"><a class="brand" href="/"><h1><b>GLC</b></h1></a>
+                <p> {{ footer.description|safe }}
+                <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>GLC</span><span>. </span><span>All Rights Reserved.</span></p>
               </div>
             </div>
             <div class="col-md-4">
               <h5>Contacts</h5>
               <dl class="contact-list">
                 <dt>Address:</dt>
-                <dd>798 South Park Avenue, Jaipur, Raj</dd>
+                <dd>{{ footer.address|safe }}</dd>
               </dl>
               <dl class="contact-list">
                 <dt>email:</dt>
-                <dd><a href="mailto:#" class="w3-button" style="text-decoration:none;">dkstudioin@gmail.com</a></dd>
+                <dd><a href="mailto:#" class="w3-button" style="text-decoration:none;">{{ footer.email }}</a></dd>
               </dl>
               <dl class="contact-list">
                 <dt>phones:</dt>
-                <dd><a href="tel:#" class="w3-button" style="text-decoration:none;" >+91 7568543012</a> <span>or</span> <a href="tel:#" class="w3-button" style="text-decoration:none;">+91 9571195353</a>
+                <dd><a href="tel:#" class="w3-button" style="text-decoration:none;" >{{ footer.phone1 }}</a> <span>or</span> <a href="tel:#" class="w3-button" style="text-decoration:none;">{{ footer.phone2 }}</a>
                 </dd>
               </dl>
             </div>
@@ -40,23 +40,24 @@ a {
                 <span><a href="/laptop" style="text-decoration:none;">Laptop</a></span>
               {% endif %}
               <ul class="nav-list">
-                <li><a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o  w3-text-red"></i> PROFILE</a></li>
-                <li><a href="/gallery" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-red"></i> GALLERY</a></li>
-                <li><a href="/team" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-users w3-text-red"></i> TEAM</a></li>
+                <li><a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o  w3-text-white"></i> PROFILE</a></li>
+                <li><a href="/gallery" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-white"></i> GALLERY</a></li>
+                <li><a href="/team" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-users w3-text-white"></i> TEAM</a></li>
                 <li><a href="#home" class="w3-button w3-round-large w3-highway-red" style="text-decoration:none;"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
                 </li>
              
               </ul>
             </div>
           </div>
+          {% endfor %}
         </div>
-       
+        {% for footer in footers %}
         <div class="row no-gutters social-container">
-          <div class="col"><a class="social-inner" href="#" style="text-decoration:none;"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-          <div class="col"><a class="social-inner" href="#" style="text-decoration:none;"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-          <div class="col"><a class="social-inner" href="#" style="text-decoration:none;"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-          <div class="col"><a class="social-inner" href="#" style="text-decoration:none;"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.facebook }}" style="text-decoration:none;"><span class="fa fa-facebook w3-large w3-text-blue"></span><span>Facebook</span></a></div>
+          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.instagram }}" style="text-decoration:none;"><span class="fa fa-instagram w3-large w3-text-pink"></span><span>Instagram</span></a></div>
+          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.twitter }}" style="text-decoration:none;"><span class="fa fa-twitter w3-large w3-text-light-blue"></span><span>Twitter</span></a></div>
+          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.youtube }}" style="text-decoration:none;"><span class="fa fa-youtube w3-large w3-text-red"></span><span>YOUTUBE</span></a></div>
         </div>
-    
+     {% endfor %}
       </footer>
   

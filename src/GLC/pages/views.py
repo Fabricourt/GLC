@@ -36,13 +36,15 @@ def about(request):
     abouts = About.objects.order_by('-reload').filter(is_published=True)[:1]
     headers = header.objects.order_by('-reload').filter(is_published=True)[:1]
     categorys = category.objects.order_by('reload').filter(is_published=True)
+    footers = Footer.objects.order_by('-reload').filter(is_published=True)[:1]
     
     context = {
         'topbars': topbars,
         'teams': teams,
         'headers': headers,
         'categorys': categorys,
-        'abouts': abouts
+        'abouts': abouts,
+        'footers': footers
     }
     return render(request, 'pages/about.html', context) 
 

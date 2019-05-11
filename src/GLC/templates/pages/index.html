@@ -192,13 +192,13 @@
 
 <!-- Gallery Section -->
 <div class="w3-container" style="padding:128px 16px" id="work">
-  <h3 class="w3-center w3-padding-large w3-round w3-highway-red">OUR PICTURES</h3>
+  <h1 class="w3-center">OUR PICTURES</h1>
  
 
   <div class="row w3-content" id="myGrid">
       {% for gallery in gallerys %}
       
-          <div class="column w3-margin w3-hover-shadow  w3-card">
+          <div class="column w3-margin w3-content w3-hover-shadow  w3-card">
              
                   <img src="{{ gallery.picture.url }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
             
@@ -206,8 +206,9 @@
       
       {% endfor %}
 
-    
-     <a href="/gallery"><button class="btn btn-outline-danger">View More In Detail </button></a>
+    <div class="w3-content ">
+     <a href="/gallery"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
+    </div>
   </div>
 
       
