@@ -6,12 +6,11 @@
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
         <a href="/about" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;">ABOUT</a>
-        <a href="/team" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-users w3-text-red"></i> TEAM</a>
-        <a href="/gallery" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-red"></i> GALLERY</a>
+        
+        
         <a href="#contact" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-envelope w3-text-red"></i> CONTACT</a>
         
         {% if user.is_authenticated %}
-        <a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o  w3-text-red"></i> PROFILE</a>
         <a href="javascript:{document.getElementById('logout').submit()}" style="text-decoration:none;" class="w3-bar-item w3-highway-red w3-hover-text-white ">
            SIGNOUT
         </a>
