@@ -29,90 +29,22 @@
 </header>
 {% endfor %}
 {% endif %}
-  
+ 
+<section class="w3-light-grey w3-padding-64">
+    <div class=" w3-padding-large w3-container">
+        <h1 class=" w3-jumbo w3-center w3-light-grey w3-margin jumbotron">Our Team</h1>
+      </div>
 
-<section>
-    <div class="w3-container w3-margin-top w3-white ">
+    <div class="container">
         <div class="row">
           {% for team in teams %}
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team ">
-              <div class="picture ">
-                <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
-              </div>
-              <div class="team-content">
-                <h3 class="name">Michele Miller</h3>
-                <h4 class="title">Web Developer</h4>
-                <h5 class="btn w3-round w3-white w3-hover-shadow">discover Me</h5>
-              </div>
-              <ul class="social">
-                <li><a href="{{ team.facebook }}" target=_blank class="fa fa-facebook" aria-hidden="true"></a></li>
-                <li><a href="{{ team.twitter }}" target=_blank class="fa fa-twitter" aria-hidden="true"></a></li>
-                <li><a href="{{ team.instagram }}" target=_blank class="fa fa-instagram" aria-hidden="true"></a></li>
-                <li><a href="{{ team.linkedin }}" target=_blank class="fa fa-linkedin" aria-hidden="true"></a></li>
-              </ul>
-            </div>
-          </div>
+            {% include 'partials/_teams.html' %}
           {% endfor %}
-              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
-              <div class="picture">
-                <img class="img-fluid" src="https://picsum.photos/130/130?image=839">
-              </div>
-              <div class="team-content">
-                <h3 class="name">Patricia Knott</h3>
-                <h4 class="title">Web Developer</h4>
-                <h5 class="btn w3-border-blue w3-hover-white w3-theme-l5">discover More About Me</h5>
 
-              </div>
-              <ul class="social">
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-google-plus" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin" aria-hidden="true"></a></li>
-              </ul>
-            </div>
-          </div>
-              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
-              <div class="picture">
-                <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
-              </div>
-              <div class="team-content">
-                <h3 class="name">Justin Ramos</h3>
-                <h4 class="title">Web Developer</h4>
-                <h5 class="btn w3-border-blue w3-hover-white w3-theme-l5">discover More About Me</h5>
-
-              </div>
-              <ul class="social">
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-google-plus" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin" aria-hidden="true"></a></li>
-              </ul>
-            </div>
-          </div>
-              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="our-team">
-              <div class="picture">
-                <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
-              </div>
-              <div class="team-content">
-                <h3 class="name">Mary Huntley</h3>
-                <h4 class="title">Web Developer</h4>
-                <h5 class="btn w3-border-blue w3-hover-white w3-theme-l5">discover More About Me</h5>
-
-              </div>
-              <ul class="social">
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-google-plus" aria-hidden="true"></a></li>
-                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin" aria-hidden="true"></a></li>
-              </ul>
-            </div>
-          </div>
+          
        
         </div>
       </div>
-    </section>
+</section>
+
 {% endblock content %}

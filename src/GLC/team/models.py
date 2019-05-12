@@ -9,6 +9,7 @@ from ckeditor.fields import RichTextField
 class Team(models. Model):
     team = models.ForeignKey(User, on_delete=models.CASCADE)
     team_header = models.ImageField(upload_to='team_header/', blank=True, null=True)
+    job_title = models.CharField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=100, blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
     description = RichTextField(blank=True, null=True)

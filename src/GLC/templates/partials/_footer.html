@@ -33,7 +33,7 @@ a {
             </div>
             <div class="col-md-4 col-xl-3">
               <h5>Links</h5>
-              {% if user.is_authenticated %}     
+              {% if user.is_staff %}     
                 <span><a href="/"style="text-decoration:none;">Home</a></span> /
                 <span><a href="/mobile" style="text-decoration:none;">Mobile</a></span> /
                 <span><a href="/tablet" style="text-decoration:none;">Tablet</a></span> /

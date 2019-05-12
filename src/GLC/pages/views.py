@@ -5,7 +5,7 @@ from about.models import About, header, category
 from home.models import Topbar, Head, Footer
 from team.models import Team
 from gallery.models import gallery
-from users.models import Profile
+from accounts.models import Profile
 from django.contrib.admin.views.decorators import staff_member_required
 
 # Dont Repeat Yourself = DRY
@@ -17,9 +17,10 @@ def index(request):
     footers = Footer.objects.order_by('-reload').filter(is_published=True)[:1]
     categorys = category.objects.order_by('-reload').filter(is_published=True)[:4]
     gallerys = gallery.objects.order_by('-reload').filter(is_published=True)[:6]
-    users = Profile.objects.all()
+    accounts = Profile.objects.all()
 
     context = {
+        'accounts': accounts,
         'topbars': topbars,
         'heads': heads,
         'footers': footers,

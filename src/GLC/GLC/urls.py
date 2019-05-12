@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include # url
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from users import views as user_views
+from accounts import views as account_views
 
 
 urlpatterns = [
@@ -27,6 +27,6 @@ urlpatterns = [
     path('team/', include('team.urls')),
     path('gallery/', include('gallery.urls')),
     path('accounts/', include('accounts.urls')),
-    path('profile/', user_views.profile, name='profile'),
+    path('profile/', account_views.profile, name='profile'),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
