@@ -11,6 +11,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 # Dont Repeat Yourself = DRY
 
 def index(request):
+    abouts = About.objects.order_by('-reload').filter(is_published=True)[:1]
     teams = Team.objects.order_by('-timestamp').filter(is_published=True)[:4]
     topbars = Topbar.objects.order_by('-reload').filter(is_published=True)[:1]
     heads = Head.objects.order_by('-reload').filter(is_published=True)[:1]
@@ -20,6 +21,7 @@ def index(request):
     accounts = Profile.objects.all()
 
     context = {
+        'abouts': abouts,
         'accounts': accounts,
         'topbars': topbars,
         'heads': heads,

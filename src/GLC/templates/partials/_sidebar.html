@@ -1,17 +1,14 @@
 {% load static %}
 <!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-margin-top w3-bar-block  w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+<nav class="w3-sidebar w3-margin-top w3-bar-block  w3-card w3-animate-left w3-hide-medium w3-hide-large w3-highway-blue" style="display:none" id="mySidebar">
    
     <a href="javascript:void(0)" onclick="w3_close()" style="text-decoration:none;" class="w3-bar-item w3-button w3-highway-red w3-large w3-text-white w3-right w3-padding-16"> Close ×</a>
-    <a href="/about" onclick="w3_close()" style="text-decoration:none;" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-eye fa-fw w3-large w3-text-blue"></i> ABOUT</a>
-    <a href="/team" onclick="w3_close()" style="text-decoration:none;" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-users w3-text-blue"></i> TEAM</a>
-    <a href="#work" onclick="w3_close()" style="text-decoration:none;" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-th w3-text-blue"></i> WORK</a>
-    <a href="#contact" onclick="w3_close()" style="text-decoration:none;" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-envelope w3-text-blue"></i> CONTACT</a>
+    <a href="/about" onclick="w3_close()" style="text-decoration:none;" class="w3-bar-item w3-button w3-hover-white ">ABOUT</a>
+    <a href="/contact" onclick="w3_close()" style="text-decoration:none;" class="w3-bar-item w3-button w3-hover-white">CONTACT</a>
 
     {% if user.is_authenticated %}
-          <a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o w3-large w3-text-blue"></i> PROFILE</a>
           <a href="javascript:{document.getElementById('logout').submit()}" style="text-decoration:none;" class="w3-bar-item w3-highway-blue  w3-button">
-            <i class="fa fa-sign-out-alt"></i> SIGNOUT
+            <i class=""></i> SIGNOUT
           </a>
           <form action="{% url 'logout' %}" method="POST" id="logout">
             {% csrf_token %}

@@ -10,7 +10,7 @@ a {
           {% for footer in footers %}
           <div class="row row-30">
             <div class="col-md-4 col-xl-5 ">
-              <div class="pr-xl-4"><a class="brand" href="/"><h1><b>GLC</b></h1></a>
+              <div class="pr-xl-4"><a class="brand btn w3-padding w3-margin-top w3-border-white w3-hover-white w3-highway-red " href="/" style="text-decoration:none;"><h1><b>GLC</b></h1></a>
                 <p> {{ footer.description|safe }}
                 <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>GLC</span><span>. </span><span>All Rights Reserved.</span></p>
               </div>
@@ -40,7 +40,12 @@ a {
                 <span><a href="/laptop" style="text-decoration:none;">Laptop</a></span>
               {% endif %}
               <ul class="nav-list">
-                <li><a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o  w3-text-white"></i> PROFILE</a></li>
+                {% if user.is_staff %}
+                <li><a href="{% url 'register' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-plus  w3-text-theme-l4"></i> SIGNUP</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <li><a href="/profile" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-circle-o w3-text- w3-text-white"></i> PROFILE</a></li>
+                {% endif %}
                 <li><a href="/gallery" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-white"></i> GALLERY</a></li>
                 <li><a href="/team" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-users w3-text-white"></i> TEAM</a></li>
                 <li><a href="#home" class="w3-button w3-round-large w3-highway-red" style="text-decoration:none;"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
@@ -52,11 +57,12 @@ a {
           {% endfor %}
         </div>
         {% for footer in footers %}
-        <div class="row no-gutters social-container">
-          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.facebook }}" style="text-decoration:none;"><span class="fa fa-facebook w3-large w3-text-blue"></span><span>Facebook</span></a></div>
-          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.instagram }}" style="text-decoration:none;"><span class="fa fa-instagram w3-large w3-text-pink"></span><span>Instagram</span></a></div>
-          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.twitter }}" style="text-decoration:none;"><span class="fa fa-twitter w3-large w3-text-light-blue"></span><span>Twitter</span></a></div>
-          <div class="col"><a class="social-inner w3-hover-white" href="{{ footer.youtube }}" style="text-decoration:none;"><span class="fa fa-youtube w3-large w3-text-red"></span><span>YOUTUBE</span></a></div>
+        <div class="row no-gutters  social-container w3-section">
+          <div class="col"><a class="social-inner w3-card-4 w3-hover-white" href="{{ footer.facebook }}" style="text-decoration:none;"><span class="fa fa-facebook w3-xxlarge w3-text-blue"></span><span>Facebook</span></a></div>
+          <div class="col"><a class="social-inner w3-card-4 w3-hover-white" href="{{ footer.instagram }}" style="text-decoration:none;"><span class="fa fa-instagram w3-xxlarge w3-text-amber"></span><span>Instagram</span></a></div>
+          <div class="col"><a class="social-inner w3-card-4 w3-hover-white" href="{{ footer.twitter }}" style="text-decoration:none;"><span class="fa fa-twitter w3-xxlarge w3-text-light-blue"></span><span>Twitter</span></a></div>
+          <div class="col"><a class="social-inner w3-card-4 w3-hover-white" href="{{ footer.linkedin }}" style="text-decoration:none;"><span class="fa fa-linkedin w3-xxlarge w3-text-black"></span><span>Linkedin</span></a></div>
+          <div class="col"><a class="social-inner w3-card-4 w3-hover-white" href="{{ footer.youtube }}" style="text-decoration:none;"><span class="fa fa-youtube w3-xxlarge w3-text-red"></span><span>YOUTUBE</span></a></div>
         </div>
      {% endfor %}
       </footer>

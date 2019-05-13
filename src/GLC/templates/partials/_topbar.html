@@ -1,6 +1,37 @@
 <!-- Header -->
+<style>
+
+body {
+ background: #21303b;
+ color: #fff;
+}
+ 
+h2 {
+ font-size: 70px;
+ line-height: 190px;
+ font-family: Helvetica, sans-serif;
+ font-weight: bold;
+ text-align: center;
+}
+ 
+#container {
+ /*stitching*/
+ outline: 1px dashed #98abb9;
+ outline-offset: -5px;
+ 
+ background-color: #556068;
+ height: 200px;
+ width: 400px;
+ margin: 100px auto;
+ 
+ /*shadow*/
+ -webkit-box-shadow: 2px 2px 2px #000;
+ -moz-box-shadow: 2px 2px 2px #000;
+ box-shadow: 2px 2px 2px #000;
+}
+</style>
 {% if topbars %}
-<header class="w3-container w3-margin w3-center w3-padding-48 w3-white">
+<header class="w3-container container w3-margin w3-center w3-padding-48 w3-white">
    <span>
         <div class="w3-container w3-hide-small w3-left ">
                 <a href="{% url 'profile'%}"> <img src="{{ user.profile.image.url }}" class="w3-bar-item w3-circle w3-margin-top " style="width:85px;"></a>

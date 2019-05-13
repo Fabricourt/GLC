@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'ckeditor',
     'crispy_forms',
+    'contact',
     'gallery',
     'home',
     'pages',

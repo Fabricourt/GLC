@@ -19,6 +19,8 @@ from django.urls import path, re_path, include # url
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from accounts import views as account_views
+from contact import views as contact_views
+
 
 
 urlpatterns = [
@@ -28,5 +30,6 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('accounts/', include('accounts.urls')),
     path('profile/', account_views.profile, name='profile'),
-    
+    path('contact/', contact_views.contact, name='contact'),
+ 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

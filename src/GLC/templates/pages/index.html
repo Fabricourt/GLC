@@ -11,95 +11,81 @@
 
 						
 {% if heads %}
-{% for head in heads %}
-
-  <header class="w3-display-container w3-card-4 w3-shadow w3-wide" id="home">
-     
-    <img class="w3-image w3-shadow" src="{{ head.home_header.url }}" alt="{{ head.title }}" width="100%" height="1060">
-  
-    <div class="w3-display-bottomleft w3-hide-small w3-hide-medium w3-padding-large">
-      <h1 class="w3-text-white">{{ head.logo_short_name }}</h1>
-      <h1 class=" w3-text-white w3-hide-small"><b>
-        {{ head.motivational_statement }}</b></h1>
-      <h6><button class="w3-button w3-hide w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
-    </div>
-  </header>
-
-  {% endfor %}
+  {% for head in heads %}
+      <header class="w3-display-container w3-card-4 w3-shadow w3-wide" id="home">
+          <img class="w3-image w3-shadow" src="{{ head.home_header.url }}" alt="{{ head.title }}" width="100%" height="1060">
+          <div class="w3-display-bottomleft w3-hide-small w3-hide-medium w3-padding-large">
+            <h1 class="w3-text-white">{{ head.logo_short_name }}</h1>
+            <h1 class=" w3-text-white w3-hide-small"><b>
+              {{ head.motivational_statement }}</b></h1>
+            <h6><button class="w3-button w3-hide w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
+          </div>
+      </header>
+    {% endfor %}
   {% endif %}
  
 <!-- Container (About Section) -->
 
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">ABOUT ME</h3>
-  <p class="w3-center"><em>I love photography</em></p>
-  <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-    qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
-      <img src="{% static 'img/team1.jpg' %}" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+  <h1 class="w3-center">ABOUT GLC</h1>
+  {% for about in abouts %} 
+    <div class="w3-padding">
+        <div class="">
+        <img src="{{ about.image.url }}" height="300" width="400" alt="Image" class="w3-padding w3-hide-small" style="float: left; margin: 4px 10px 0px 0px; border: 1px solid #ffffff;"> 
+        <p>{{ about.content|slice:"900"|safe }}</p>
+      </div>
     </div>
-
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-padding-large">
-      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div class="w3-hide-large w3-padding w3-hide-medium">
+        <img src="{{ about.image.url }}" height="400" width="100%" alt="Image" class="w3-padding" style="border: 1px solid #ffffff;"> 
     </div>
-  </div>
+  {% endfor %}
 </div>	
+
 <!-- Features -->
 <section class="w3-white " id="templatemo_features">
-    <div class="container-fluid w3-padding-large">
-    
-          
-            {% for category in categorys %}
-            <div class="col-sm-6 col-lg-3 feature-box">
-                <div class="feature-box-inner">
-                    <div class="feature-box-icon ">
-                       <i class="fa fa-pagelines"></i>
-                    </div>
-                    <p>
-                       {{ category.statements }}
-                    </p>
-                </div>
-            </div>
-            {% endfor %}
-  
-           
+    <div class="container-fluid "> 
+      {% for category in categorys %}
+      <div class="col-sm-6 col-lg-3 feature-box">
+          <div class="feature-box-inner">
+              <div class="feature-box-icon ">
+                  <i class="fa fa-pagelines"></i>
+              </div>
+              <p>
+                  {{ category.statements }}
+              </p>
+          </div>
+      </div>
+      {% endfor %}
+
+      <div class="w3-container w3-highway-blue w3-card w3-row w3-center  w3-padding-64">
+          <div class="w3-quarter">
+            <span class="w3-xxlarge">14+</span>
+            <br>People Helped So Far
+          </div>
+          <div class="w3-quarter">
+            <span class="w3-xxlarge">55+</span>
+            <br>People In The Program
+          </div>
+          <div class="w3-quarter">
+            <span class="w3-xxlarge">89+</span>
+            <br>Sponsors
+          </div>
+          <div class="w3-quarter">
+            <span class="w3-xxlarge">150+</span>
+            <br>Partners
+          </div>
+        
+        </div>
+
+      <div class="w3-content w3-margin-top w3-center">
+          <a href="/about"><button class="btn w3-highway-red w3-hover-white w3-border-red">Discover More About Us </button></a>
+      </div>      
     </div>
-  </section>
-   
-<div class="w3-container w3-highway-blue w3-card w3-row w3-center  w3-padding-64">
-    <div class="w3-quarter">
-      <span class="w3-xxlarge">14+</span>
-      <br>People Helped So Far
-    </div>
-    <div class="w3-quarter">
-      <span class="w3-xxlarge">55+</span>
-      <br>People In The Program
-    </div>
-    <div class="w3-quarter">
-      <span class="w3-xxlarge">89+</span>
-      <br>Sponsors
-    </div>
-    <div class="w3-quarter">
-      <span class="w3-xxlarge">150+</span>
-      <br>Partners
-    </div>
-  </div>
-
-
-
-
-
-
+</section>
 
 <section class="w3-light-grey w3-padding-64">
-    <div class=" w3-padding-large w3-container">
-        <h1 class=" w3-jumbo w3-center w3-light-grey w3-margin jumbotron">Our Team</h1>
+    <div class="w3-container">
+        <h1 class=" w3-jumbo w3-center ">Our Team</h1>
     </div>
       <div class="container">
         <div class="row">
@@ -110,7 +96,7 @@
         <div class="w3-content ">
             <img src="{% static 'img/TEAM-logo.jpg' %}" style="width:400px; height:300px" alt="profiles" class="w3-hide-large w3-hide-small w3-margin-bottom"><br>
           <div class="w3-content w3-right">
-          <a href="/teams"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
+          <a href="/teams"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More Team Members </button></a>
           </div>
         </div>
         </div>
@@ -118,37 +104,32 @@
     </div>
 </section>
 
-
-
-
-
 <!-- Gallery Section -->
-<div class="w3-container" style="padding:128px 16px" id="work">
+<div class="w3-container w3-hide-small" style="padding:128px 16px" id="work">
   <h1 class="w3-center">OUR PICTURES</h1>
- 
-
   <div class="row w3-content" id="myGrid">
       {% for gallery in gallerys %}
-      
           <div class="column w3-margin w3-content w3-hover-shadow  w3-card">
-             
-                  <img src="{{ gallery.picture.url }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-            
+              <img src="{{ gallery.picture.url }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"> 
           </div>
-      
       {% endfor %}
-
-    <div class="w3-content ">
-     <a href="/gallery"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
-    </div>
+      <div class="w3-content ">
+          <a href="/gallery"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
+      </div>
   </div>
-
-      
 </div>
 
-
-
-
-
-
+<section class="w3-container w3-hide-large w3-margin-bottom w3-padding-large w3-hide-medium" >
+    <h1 class="w3-center w3-jumbo ">OUR PICTURES</h1>
+    <div class="w3-content">
+        {% for gallery in gallerys %}
+            <div class="w3-margin w3-content w3-hover-shadow  w3-card">
+                <img src="{{ gallery.picture.url }}" width="100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"> 
+            </div>
+        {% endfor %}
+        <div class="w3-content ">
+            <a href="/gallery"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
+        </div>
+    </div>   
+  </section>
 {% endblock %}
