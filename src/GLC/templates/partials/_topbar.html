@@ -8,12 +8,13 @@
       </span>
 
       <div class="w3-center"><h1 class="w3-xxxlarge"><b>GREATER LIFE CONCERN</b></h1></div>
+     
 
   
    
 
 {% for topbar in topbars %}
-   <h6 class="w3-center">{{ topbar.statement|safe }}</h6>
+   <div class="w3-center"><h6 >{{ topbar.statement|safe }}</h6></div>
    <div class="w3-container w3-center w3-hide-medium w3-hide-large ">
       <a href="{% url 'profile'%}"> <img src="{{ user.profile.image.url }}" class="w3-bar-item w3-circle w3-margin-top " style="width:85px;"></a>
    </div>
