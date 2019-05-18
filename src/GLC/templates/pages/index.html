@@ -30,8 +30,8 @@
   <h1 class="w3-center">ABOUT GLC</h1>
   {% for about in abouts %} 
     <div class="w3-padding">
-        <div class="">
-        <img src="{{ about.image.url }}" height="300" width="400" alt="Image" class="w3-padding w3-hide-small" style="float: left; margin: 4px 10px 0px 0px;  #ffffff;"> 
+        <div class="w3-white w3-container">
+        <img src="{{ about.image.url }}" height="300" width="400" alt="Image" class="w3-padding w3-hide-small" style="float: left; margin: 4px 10px 0px 0px; background: white"> 
         <p>{{ about.content|slice:"900"|safe }}</p>
       </div>
     </div>
