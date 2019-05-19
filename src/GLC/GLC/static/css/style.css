@@ -52,8 +52,8 @@ hr
   border-bottom: 10px solid #ceced2;
   border-top: 10px solid #ceced2;
   padding: 60px 20px 60px 20px;
-  background: #87794e;
-  opacity: 0.9;
+
+  
 }
 #templatemo_features .feature-box p {
   max-width: 250px;
@@ -77,7 +77,7 @@ h1 {font-family: "Montserrat", sans-serif}
 
 
 body {
-  font-family: Verdana, sans-serif;
+
   margin: 0;
 }
 
@@ -265,7 +265,7 @@ ul, ol {
 .nav-list li a:before {
     content: "\f14f";
     font: 400 21px/1 "Material Design Icons";
-    color: #a78763;
+   
     display: inline-block;
     vertical-align: baseline;
     margin-left: -28px;
