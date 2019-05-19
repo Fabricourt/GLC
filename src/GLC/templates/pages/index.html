@@ -27,12 +27,13 @@
 
 
 <div class="w3-content w3-container w3-padding-large " >
+    <h1 class="w3-center w3-margin w3-xxxlarge ">ABOUT GLC</h1>
   {% for about in abouts %} 
-    <div class="">
-        <div class="w3-white w3-padding w3-container">
+    <div class="w3-white w3-padding w3-container">
+       
         <img src="{{ about.image.url }}" height="300" width="400" alt="Image" class="w3-padding w3-hide-small" style="float: left; margin: 4px 10px 0px 0px; background: white"> 
-        <p>{{ about.content|slice:"600"|safe }}</p>
-      </div>
+        <p>{{ about.content|slice:"900"|safe }}</p>
+     
     </div>
     <div class="w3-hide-large w3-padding w3-hide-medium">
         <img src="{{ about.image.url }}" height="400" width="100%" alt="Image" class="w3-padding" style="background-color: white;"> 
@@ -42,7 +43,7 @@
 
 <!-- Container (About Section) -->
 <section class="w3-white w3-padding-large w3-margin-top " id="templatemo_features">
-    <h1 class="w3-center w3-xxxlarge ">ABOUT GLC</h1>
+   
     <div class="container-fluid ">
         {% for category in categorys %}
       <div class="col-sm-6 col-lg-3 feature-box">
