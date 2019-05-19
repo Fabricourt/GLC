@@ -71,9 +71,11 @@
       </header>
     {% endfor %}
   {% endif %}
+  
+  {% if abouts %}
   <div class="w3-content w3-container w3-padding-large" >
       <h1 class="w3-center w3-margin w3-xxxlarge ">ABOUT GLC</h1>
-  
+  {% for about in abouts}
     <img src="{{ about.image.url }}" height="300" width="400" alt="Image" class="w3-left w3-margin-right w3-padding w3-hide-small"> 
       <p>{{ about.content|safe|slice:"600"}}</p> 
 
@@ -81,12 +83,13 @@
       <div class="w3-hide-large w3-padding w3-hide-medium">
           <img src="{{ about.image.url }}" height="400" width="100%" alt="Image" class="w3-padding" style="background-color: white;"> 
       </div>
-   
+   {% endfor %}
 
     <div class="w3-content w3-margin-top w3-center">
         <a href="/about"><button class="btn w3-highway-red w3-hover-white w3-border-red">Discover More About Us </button></a>
     </div>   
   </div>  
+  {% endif %}
 <!-- Container (About Section) -->
 <section class="w3-white w3-padding-large w3-margin-top " id="templatemo_features">
    
