@@ -39,7 +39,7 @@ a {
                 <span><a href="/tablet" style="text-decoration:none;">Tablet</a></span> /
                 <span><a href="/laptop" style="text-decoration:none;">Laptop</a></span>
               {% endif %}
-              <ul class="nav-list">
+              <ul class="nav-list" style="text-decoration: none;">
                 {% if user.is_staff %}
                 <li><a href="{% url 'register' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-user-plus  w3-text-theme-l4"></i> SIGNUP</a></li>
                 {% endif %}
