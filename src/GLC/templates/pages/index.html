@@ -29,7 +29,7 @@
     {% for about in abouts %} 
       <div class="w3-white w3-container">
           <img src="{{ about.image.url }}" height="300" width="400" alt="Image" class="w3-left w3-margin-right w3-padding w3-hide-small"> 
-          <p>{{ about.content|slice:"900"|safe }}</p> 
+          <p>{{ about.content|slice:"700"|safe }}</p> 
       </div>
       <div class="w3-hide-large w3-padding w3-hide-medium">
           <img src="{{ about.image.url }}" height="400" width="100%" alt="Image" class="w3-padding" style="background-color: white;"> 
