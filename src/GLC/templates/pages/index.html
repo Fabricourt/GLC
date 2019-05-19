@@ -113,7 +113,9 @@
               <img src="{{ gallery.picture.url }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"> 
           </div>
       {% endfor %}
-      <div class=" ">
+     
+      <div class="w3-center w3-content">
+    
           <a href="/gallery"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
       </div>
   </div>
@@ -127,11 +129,12 @@
                 <img src="{{ gallery.picture.url }}" width="100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"> 
             </div>
         {% endfor %}
-        <div class="w3-content w3-left">
-          <div>
-            <a href="/gallery"><button class="btn w3-center w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
-            </div>
-          </div>
+
     </div>   
+    <div class="w3-content w3-center">
+      
+          <a href="/gallery"><button class="btn w3-center w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
+      
+    </div>
   </section>
 {% endblock %}
