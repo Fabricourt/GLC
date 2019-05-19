@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.loader import get_template
-from about.models import About, header, category
+from about.models import About, header, category, numbers
 from home.models import Topbar, Head, Footer
 from team.models import Team
 from gallery.models import gallery
@@ -12,6 +12,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 def index(request):
     abouts = About.objects.order_by('-reload').filter(is_published=True)[:1]
+    numberss = numbers.objects.order_by('reload').filter(is_published=True)[:4]
     teams = Team.objects.order_by('-timestamp').filter(is_published=True)[:4]
     topbars = Topbar.objects.order_by('-reload').filter(is_published=True)[:1]
     heads = Head.objects.order_by('-reload').filter(is_published=True)[:1]
@@ -22,6 +23,7 @@ def index(request):
 
     context = {
         'abouts': abouts,
+        'numberss': numberss,
         'accounts': accounts,
         'topbars': topbars,
         'heads': heads,
