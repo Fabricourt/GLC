@@ -1,22 +1,22 @@
 <!-- Header -->
 
 {% if topbars %}
+
 <header class="w3-container w3-margin w3-center w3-padding-48 w3-white">
-   
-      <span class="w3-container w3-left w3-hide-small w3-ride ">
-         <a href="{% url 'profile'%}"> <img src="{{ user.profile.image.url }}" height=85 width=85 class="w3-bar-item w3-circle w3-margin-top "></a>
+{% if user.is_authenticated %}
+      <span class="w3-container w3-left w3-hide-small">
+         
+         <a href="{% url 'profile'%}"> <img src="{{ user.profile.image.url }}" class="w3-bar-item w3-circle w3-border-white w3-margin-top " style="width:85px; height:85px"></a>
       </span>
-
+{% endif %}
       <div class="w3-center"><h1 class="w3-xxxlarge"><b>GREATER LIFE CONCERN</b></h1></div>
-     
-
-  
-   
-
 {% for topbar in topbars %}
-   <div class="w3-center"><h6 >{{ topbar.statement|safe }}</h6></div>
+   <div class="w3-center w3-hide-small"><h6 >{{ topbar.statement|safe }}</h6></div>
    <div class="w3-container w3-center w3-hide-medium w3-hide-large ">
-      <a href="{% url 'profile'%}"> <img src="{{ user.profile.image.url }}" class="w3-bar-item w3-circle w3-margin-top " style="width:85px; height:85px;"></a>
+         {% if user.is_authenticated %}
+                <a href="{% url 'profile'%}"> <img src="{{ user.profile.image.url }}" class="w3-bar-item w3-circle w3-margin-top " style="width:85px; height:85px;"></a>
+         {% endif %}
+         <div class="w3-center w3-hide-large w3-hide-medium"><h6 >{{ topbar.statement|safe }}</h6></div>
    </div>
   
 {% endfor %}
