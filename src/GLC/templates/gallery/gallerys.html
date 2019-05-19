@@ -17,7 +17,7 @@
     {% for gallery in gallerys %}
     
         <div class="column w3-margin"> 
-            <img src="{{ gallery.picture.url }}" style="width:100%" onclick="openModal();currentSlide(1)" class="w3-hover-shadow w3-card cursor">
+            <img src="{{ gallery.picture.url }}" style="width:100%; height:300px;" onclick="openModal();currentSlide(1)" class="w3-hover-shadow w3-card cursor">
         </div>
     
     {% endfor %}
