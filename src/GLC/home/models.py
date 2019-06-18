@@ -19,8 +19,6 @@ class Head(models.Model):
     home_header_1 = models.ImageField(upload_to='home_header/', blank=True, null=True)
     home_header_2 = models.ImageField(upload_to='home_header/', blank=True, null=True)
     home_header_3 = models.ImageField(upload_to='home_header/', blank=True, null=True)
-    home_header_4 = models.ImageField(upload_to='home_header/', blank=True, null=True)
-    home_header_5 = models.ImageField(upload_to='home_header/', blank=True, null=True)
     logo_short_name = models.CharField(max_length=20, blank=True, null=True)
     motivational_statement = models.CharField(max_length=200, blank=True, null=True)
     reload = models.DateTimeField(default=timezone.now)

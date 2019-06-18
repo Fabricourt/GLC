@@ -54,7 +54,7 @@ figure.slider figure figcaption {
 				<img src="{{ head.home_header.url }}" alt>
 			{% endfor %}
 			{% endif %}
-			<figcaption class="w3-center"><br>
+			<figcaption class="w3-center">...<br>
 			</figcaption>
 		</figure>
 		<figure>
@@ -63,7 +63,7 @@ figure.slider figure figcaption {
 					<img src="{{ head.home_header_1.url }}" alt>
 				{% endfor %}
 				{% endif %}
-			<figcaption class="w3-center"></figcaption>
+			<figcaption class="w3-center">...</figcaption>
 		</figure>
 		<figure>
 				{% if heads %}
@@ -71,7 +71,7 @@ figure.slider figure figcaption {
 					<img src="{{ head.home_header_2.url }}" alt>
 				{% endfor %}
 				{% endif %}
-			<figcaption class="w3-center"></figcaption>
+			<figcaption class="w3-center">...</figcaption>
 		</figure>
 		<figure>
 				{% if heads %}
@@ -79,24 +79,16 @@ figure.slider figure figcaption {
 					<img src="{{ head.home_header_3.url }}" alt>
 				{% endfor %}
 				{% endif %}
-			<figcaption class="w3-center"></figcaption>
+			<figcaption class="w3-center">...</figcaption>
 		</figure>
 		<figure>
 				{% if heads %}
 				{% for head in heads %}
-					<img src="{{ head.home_header_4.url }}" alt>
+					<img src="{{ head.home_header.url }}" alt>
 				{% endfor %}
 				{% endif %}
-			<figcaption class="w3-center"></figcaption>
+			<figcaption class="w3-center">...</figcaption>
         </figure>
-		<figure>
-				{% if heads %}
-				{% for head in heads %}
-					<img src="{{ head.home_header_5.url }}" alt>
-				{% endfor %}
-				{% endif %}
-			<figcaption class="w3-center"></figcaption>
-
-        </figure>
+       
 	</figure>
 </div>
