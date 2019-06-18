@@ -42,3 +42,5 @@ class numbers(models.Model):
 
     def __str__(self):
         return self.title
+
+        

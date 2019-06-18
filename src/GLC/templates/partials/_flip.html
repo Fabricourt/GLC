@@ -1,0 +1,698 @@
+<style>
+
+body {
+   text-align: center;
+}
+
+.card {
+   position: relative;
+   user-select: none;
+}
+
+.card-inner {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   color: #fff;
+   transform-style: preserve-3d;
+   perspective: 1000px;
+   backface-visibility: hidden;
+   transition: 100ms opacity 100ms, transform 500ms;
+}
+
+/* ARROWS */
+.card:not(.no-arrows) .card-inner:before,
+.card:not(.no-arrows) .card-inner:after {
+   position: absolute;
+   content: "";
+   width: 40px;
+   height: 40px;
+   z-index: 100;
+   background-size: 40px 40px;
+   background-repeat: no-repeat;
+   background-position: center center;
+   transition: 100ms opacity 100ms;
+   backface-visibility: hidden;
+}
+
+/* FLIP Y */
+.card-inner.is-active.card-flip-y {
+   transform: perspective(1000px) rotateY(0deg);
+}
+
+.card-inner:not(.is-active).card-flip-y {
+   opacity: 0;
+   transform: perspective(1000px) rotateY(180deg);
+}
+
+.card-inner.is-active.card-flip-y ~ .card-inner.card-flip-y {
+   transform: perspective(1000px) rotateY(-180deg);
+}
+
+.card-inner.card-flip-y:before,
+.card-inner.card-flip-y:after {
+   top: 50%;
+   transform: translate3d(0, -50%, 0);
+}
+.card-inner.card-flip-y:before {
+   left: 10px;
+   background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="512px" height="512px"> <g> <path d="m88.6,121.3c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-51-51 51-51c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-54,53.9c-1.6 1.6-1.6,4.2 0,5.8l54,53.9z" fill="#FFFFFF"/> </g> </svg>');
+}
+
+.card-inner.card-flip-y:after {
+   right: 10px;
+   background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="512px" height="512px"> <g> <path d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9 53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z" fill="#FFFFFF"/> </g> </svg>');
+}
+
+/* FLIP X */
+.card-inner.is-active.card-flip-x {
+   transform: perspective(1000px) rotateY(0deg);
+}
+
+.card-inner:not(.is-active).card-flip-x {
+   opacity: 0;
+   transform: perspective(1000px) rotateX(-180deg);
+}
+
+.card-inner.is-active.card-flip-x ~ .card-inner.card-flip-x {
+   transform: perspective(1000px) rotateX(180deg);
+}
+
+.card-inner.card-flip-x:before,
+.card-inner.card-flip-x:after {
+   left: 50%;
+   transform: translate3d(-50%, 0, 0) rotate(90deg);
+}
+
+.card-inner.card-flip-x:before {
+   top: 10px;
+   background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="512px" height="512px"> <g> <path d="m88.6,121.3c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-51-51 51-51c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-54,53.9c-1.6 1.6-1.6,4.2 0,5.8l54,53.9z" fill="#FFFFFF"/> </g> </svg>');
+}
+
+.card-inner.card-flip-x:after {
+   bottom: 10px;
+   background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="512px" height="512px"> <g> <path d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9 53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z" fill="#FFFFFF"/> </g> </svg>');
+}
+
+.card-first .card-inner.card-flip-y:before,
+.card-first .card-inner.card-flip-x:before {
+   opacity: 0.2;
+}
+
+.card-last .card-inner.card-flip-y:after,
+.card-last .card-inner.card-flip-x:after {
+   opacity: 0.2;
+}
+
+.card-parent {
+   position: relative;
+   display: inline-block;
+}
+
+/* COUNTER */
+.card-counter {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   margin: 30px 0 0;
+   user-select: none;
+}
+
+/* DOTS */
+.card-parent.card-flip-y .card-dots {
+   left: 50%;
+   bottom: 15px;
+   transform: translate3d(-50%, 0, 0);
+   pointer-events: none;
+}
+
+.card-parent.card-flip-y .card-dots li + li {
+   margin-left: 10px;
+}
+
+.card-parent.card-flip-x .card-dots li {
+   display: block;
+}
+
+.card-parent.card-flip-x .card-dots li + li {
+   margin-top: 10px;
+}
+
+.card-parent.card-flip-x .card-dots {
+   top: 50%;
+   right: 15px;
+   transform: translate3d(0, -50%, 0);
+}
+
+.card-dots {
+   position: absolute;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   transform-style: preserve-3d;
+   width: 100%;
+   z-index: 100;
+}
+
+.card-dots li {
+   display: inline-block;
+   vertical-align: middle;
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   background-color: #fff;
+   opacity: 0.2;
+   transition: opacity 200ms;
+   backface-visibility: hidden;
+   cursor: pointer;
+   pointer-events: all;
+}
+
+.card-dots li.is-active,
+.card-dots li:hover {
+   opacity: 1;
+}
+
+/* DEMO */
+p,
+.card-counter {
+   font-family: "Arial";
+   font-weight: bold;
+   text-align: center;
+}
+
+code {
+   display: block;
+   margin: 20px auto 40px;
+   text-align: left;
+   width: 350px;
+}
+
+.card .text-wrapper {
+   position: absolute;
+   font-size: 24px;
+   top: 50%;
+   left: 50%;
+   transform: translate3d(-50%, -50%, 0);
+}
+
+.card .text-wrapper p {
+   margin: 0;
+}
+
+.card .text-wrapper p + p {
+   margin-top: 10px;
+}
+
+.card img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+}
+
+.card {
+   width: 350px;
+   height: 350px;
+}
+
+.card-inner {
+   background-color: #000;
+}
+
+.card-parent {
+   margin: 0 auto 100px;
+}
+
+.gallery-4 {
+   width: 100%;
+   max-width: 500px;
+}
+
+.gallery-4 .card {
+   width: 100%;
+}
+
+.card-boxShadow .card-inner {
+   overflow: hidden;
+   box-shadow: 0 0 40px rgba(0, 0, 0, 0.79);
+}
+
+.gallery-1 .card-inner {
+   border-radius: 15px;
+}
+
+
+</style>
+
+
+<code>
+		hoverDegree: 20,<br>
+		rotationAxis: "both",<br>
+		flipAxis: "Y",<br>
+		reversedRotation: true,<br>
+		counter: false,<br>
+		boxShadow: true
+	</code>
+<div class="gallery-2">
+   <img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1522191800707-5f01b7b9a3b8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1495430288918-03be19c7c485?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+</div>
+
+<code>
+		hoverDegree: 15,<br>
+		rotationAxis: "both",<br>
+		flipAxis: "X",<br>
+		boxShadow: true
+	</code>
+<div class="gallery-1">
+   <img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1522191800707-5f01b7b9a3b8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1495430288918-03be19c7c485?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+</div>
+
+<code>
+		hoverDegree: 10,<br>
+		rotationAxis: "both",<br>
+		flipAxis: "Y",<br>
+		arrows: false,<br>
+		dots: true<br>
+		counter: true,
+	</code>
+<div class="gallery-3">
+   <img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1522191800707-5f01b7b9a3b8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1495430288918-03be19c7c485?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+</div>
+
+<code>
+		hoverDegree: 10,<br>
+		rotationAxis: "X",<br>
+		flipAxis: "X",<br>
+		dots: true,<br>
+		loop: true
+	</code>
+<div class="gallery-4">
+   <div>
+      <div class="text-wrapper">
+         <p>Any element can be placed inside the card</p>
+         <p>This is card #1;</p>
+      </div>
+   </div>
+   <div>
+      <div class="text-wrapper">
+         <p>Each card must have position: absolute :/</p>
+         <p>This is card #2;</p>
+      </div>
+   </div>
+   <div>
+      <div class="text-wrapper">
+         <p>You must set either a height or a min-height</p>
+         <p>This is card #3;</p>
+      </div>
+   </div>
+</div>
+
+<code>
+		rotation: false
+	</code>
+<div class="gallery-5">
+   <img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1522191800707-5f01b7b9a3b8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1495430288918-03be19c7c485?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+</div>
+
+<code>
+		hoverDegree: 10,<br>
+		rotationAxis: "both",<br>
+		flipAxis: "X",<br>
+		counter: true,
+	</code>
+<div class="gallery-6">
+   <img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1522191800707-5f01b7b9a3b8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+   <img src="https://images.unsplash.com/photo-1495430288918-03be19c7c485?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="">
+</div>
+
+<code>
+		Defaults:
+		<br><br>
+		loop: false,<br>
+		dots: false,<br>
+		arrows: true,<br>
+		flipAxis: "Y",<br>
+		counter: false,<br>
+		rotation: true,<br>
+		hoverDegree: 10,<br>
+      boxShadow: false,<br>
+		rotationAxis: "both",<br>
+		reversedRotation: false<br>
+    </code>
+    <scripts>
+            class FlipCard {
+                constructor(settings) {
+                   this.index = 0;
+                   this.card = null;
+                   this.cards = null;
+                   this.degreesY = 0;
+                   this.degreesX = 0;
+                   this.canMove = true;
+                   this.canClick = true;
+                   this.interval = null;
+                   this.direction = "";
+                   this.isMobile = false;
+             
+                   this.counter = {
+                      current: null,
+                      numberOf: null
+                   };
+             
+                   this.settings = {
+                      loop: false,
+                      dots: false,
+                      arrows: true,
+                      flipAxis: "Y",
+                      counter: false,
+                      rotation: true,
+                      hoverDegree: 10,
+                      boxShadow: false,
+                      rotationAxis: "both",
+                      reversedRotation: false
+                   };
+             
+                   this.extendSettings(settings);
+                   this.setMarkup();
+                   this.setClasses();
+                   if (this.settings.counter) {
+                      this.createCounter();
+                   }
+                   this.bindEvents();
+                }
+             
+                extendSettings(settings) {
+                   Object.assign(this.settings, settings);
+                   this.settings.flipAxis = this.settings.flipAxis.toLowerCase();
+                   this.settings.rotationAxis = this.settings.rotationAxis.toLowerCase();
+                }
+             
+                setMarkup() {
+                   let wrapper = document.createElement("DIV");
+                   this.settings.parent.appendChild(wrapper);
+                   this.settings.parent.classList.add("card-parent");
+                   this.card = wrapper;
+                   this.card.classList.add("card");
+                   [...this.settings.parent.children].forEach((card, index) => {
+                      if (!card.classList.contains("card")) {
+                         card.outerHTML = `<div class="card-inner${
+                            index === 0 ? " is-active" : ""
+                         }">${card.outerHTML}</div>`;
+                      }
+                   });
+             
+                   [...this.settings.parent.children].forEach((card, index) => {
+                      if (!card.classList.contains("card")) {
+                         this.card.appendChild(card);
+                      }
+                   });
+             
+                   this.cards = this.card.children;
+             
+                   if (this.settings.dots) {
+                      let dots = document.createElement("UL");
+                      dots.classList.add("card-dots");
+                      [...this.cards].forEach((card, index) => {
+                         let li = document.createElement("LI");
+                         li.addEventListener("click", () => {
+                            this.cards[this.index].classList.remove("is-active");
+                            this.dots[this.index].classList.remove("is-active");
+             
+                            this.index = index;
+             
+                            this.cards[this.index].classList.add("is-active");
+                            this.dots[this.index].classList.add("is-active");
+                            if (this.settings.counter) {
+                               this.counter.current.innerHTML = this.index + 1;
+                            }
+                         });
+                         dots.appendChild(li);
+                      });
+             
+                      this.dots = dots.children;
+                      this.dots[0].classList.add("is-active");
+                      this.settings.parent.appendChild(dots);
+                   }
+                }
+             
+                setClasses() {
+                   [...this.cards].forEach(card => {
+                      card.classList.add(
+                         `card-flip-${this.settings.flipAxis.toLocaleLowerCase()}`
+                      );
+                   });
+             
+                   this.settings.parent.classList.add(
+                      `card-flip-${this.settings.flipAxis.toLocaleLowerCase()}`
+                   );
+             
+                   if (!this.settings.arrows) {
+                      this.card.classList.add("no-arrows");
+                   }
+             
+                   if (!this.settings.loop) {
+                      this.card.classList.add("card-first");
+                   }
+             
+                   if (this.settings.boxShadow) {
+                      this.card.classList.add("card-boxShadow");
+                   }
+                }
+             
+                createCounter() {
+                   let counter = document.createElement("DIV");
+                   counter.classList.add("card-counter");
+             
+                   this.counter.numberOf = document.createElement("SPAN");
+                   this.counter.numberOf.innerHTML = ` / ${this.cards.length}`;
+             
+                   this.counter.current = document.createElement("SPAN");
+                   this.counter.current.innerHTML = this.index + 1;
+             
+                   counter.appendChild(this.counter.current);
+                   counter.appendChild(this.counter.numberOf);
+                   this.settings.parent.appendChild(counter);
+                }
+             
+                rotate(e) {
+                   if (this.canMove) {
+                      let rect = this.card.getBoundingClientRect();
+                      let offsetX = e.clientX - rect.left;
+                      let ratioY = offsetX / (this.card.clientWidth / 2);
+                      let offsetY = e.clientY - rect.top;
+                      let ratioX = offsetY / (this.card.clientHeight / 2);
+                      let reversed = this.settings.reversedRotation ? -1 : 1;
+             
+                      if (["both", "y"].includes(this.settings.rotationAxis)) {
+                         this.degreesY = (ratioY - 1) * this.settings.hoverDegree * reversed;
+                      }
+             
+                      if (["both", "x"].includes(this.settings.rotationAxis)) {
+                         this.degreesX =
+                            -(ratioX - 1) * this.settings.hoverDegree * reversed;
+                      }
+             
+                      clearInterval(this.interval);
+             
+                      if (this.settings.flipAxis === "x") {
+                         if (ratioX < 1) {
+                            this.direction = "left";
+                         } else {
+                            this.direction = "right";
+                         }
+                      } else {
+                         if (ratioY < 1) {
+                            this.direction = "left";
+                         } else {
+                            this.direction = "right";
+                         }
+                      }
+             
+                      this.setStyle();
+                   }
+                }
+             
+                setStyle() {
+                   if (this.settings.rotation && !this.isMobile) {
+                      this.card.style.transform = `perspective(1000px) rotateY(${
+                         this.degreesY
+                      }deg) rotateX(${this.degreesX}deg)`;
+             
+                      if (this.settings.boxShadow)
+                         this.cards[this.index].style.boxShadow = ` ${-this.degreesY}px ${
+                            this.degreesX
+                         }px 40px rgba(0,0,0,.79)`;
+                   }
+                }
+             
+                resetRotation() {
+                   if (this.settings.rotation && !this.isMobile) {
+                      this.canMove = false;
+                      let ms = 0;
+                      let currentDegreesY = this.degreesY;
+                      let currentDegreesX = this.degreesX;
+                      clearInterval(this.interval);
+                      this.interval = setInterval(() => {
+                         ms += 1;
+                         if (ms > 25) {
+                            clearInterval(this.interval);
+                            this.canMove = true;
+                         } else {
+                            if (["both", "y"].includes(this.settings.rotationAxis)) {
+                               if (this.degreesY < 0) this.degreesY += -currentDegreesY / 25;
+                               else this.degreesY -= currentDegreesY / 25;
+                            }
+             
+                            if (["both", "x"].includes(this.settings.rotationAxis)) {
+                               if (this.degreesX < 0) this.degreesX += -currentDegreesX / 25;
+                               else this.degreesX -= currentDegreesX / 25;
+                            }
+                            this.card.style.transform = `perspective(1000px) rotateY(${
+                               this.degreesY
+                            }deg) rotateX(${this.degreesX}deg)`;
+             
+                            if (this.settings.boxShadow)
+                               this.cards[this.index].style.boxShadow = ` ${-this
+                                  .degreesY}px ${this.degreesX}px 40px rgba(0,0,0,.79)`;
+                         }
+                      }, 1);
+                   }
+                }
+             
+                changeCard() {
+                   if (this.canClick) {
+                      this.canClick = false;
+                      this.cards[this.index].classList.remove("is-active");
+                      if (this.settings.dots)
+                         this.dots[this.index].classList.remove("is-active");
+                      if (this.direction === "right" && this.index < this.cards.length - 1)
+                         this.index++;
+                      else if (this.direction === "left" && this.index > 0) this.index--;
+                      else {
+                         if (this.settings.loop) {
+                            if (this.index - 1 < 0) {
+                               this.index = this.cards.length - 1;
+                            } else if (this.index + 1 > this.cards.length - 1) {
+                               this.index = 0;
+                            }
+                         }
+                      }
+             
+                      if (!this.settings.loop) {
+                         if (this.index === 0) this.card.classList.add("card-first");
+                         else this.card.classList.remove("card-first");
+             
+                         if (this.index === this.cards.length - 1)
+                            this.card.classList.add("card-last");
+                         else this.card.classList.remove("card-last");
+                      }
+             
+                      this.cards[this.index].classList.add("is-active");
+                      if (this.settings.dots)
+                         this.dots[this.index].classList.add("is-active");
+                      if (this.settings.counter)
+                         this.counter.current.innerHTML = this.index + 1;
+                      setTimeout(() => {
+                         this.canClick = true;
+                      }, 500);
+             
+                      this.setStyle();
+                   }
+                }
+             
+                checkIfMobile() {
+                   if (window.innerWidth <= 1024) this.isMobile = true;
+                   else this.isMobile = false;
+                }
+             
+                bindEvents() {
+                   this.card.addEventListener("click", this.changeCard.bind(this));
+                   this.card.addEventListener("mousemove", this.rotate.bind(this));
+                   this.settings.parent.addEventListener(
+                      "mouseleave",
+                      this.resetRotation.bind(this)
+                   );
+                   window.addEventListener("resize", this.checkIfMobile.bind(this));
+                   document.addEventListener(
+                      "DOMContentLoaded",
+                      this.checkIfMobile.bind(this)
+                   );
+                }
+             }
+             
+             new FlipCard({
+                parent: document.querySelector(".gallery-1"),
+                hoverDegree: 10,
+                rotationAxis: "both",
+                flipAxis: "X",
+                boxShadow: true
+             });
+             
+             new FlipCard({
+                parent: document.querySelector(".gallery-2"),
+                hoverDegree: 20,
+                rotationAxis: "both",
+                flipAxis: "Y",
+                reversedRotation: true,
+                counter: false,
+                dots: false,
+                boxShadow: true
+             });
+             
+             new FlipCard({
+                parent: document.querySelector(".gallery-3"),
+                hoverDegree: 10,
+                rotationAxis: "both",
+                flipAxis: "Y",
+                arrows: false,
+                counter: true,
+                dots: true
+             });
+             
+             new FlipCard({
+                parent: document.querySelector(".gallery-4"),
+                hoverDegree: 10,
+                rotationAxis: "X",
+                flipAxis: "X",
+                dots: true,
+                loop: true
+             });
+             
+             new FlipCard({
+                parent: document.querySelector(".gallery-5"),
+                rotation: false
+             });
+             
+             new FlipCard({
+                parent: document.querySelector(".gallery-6"),
+                hoverDegree: 10,
+                rotationAxis: "both",
+                flipAxis: "X",
+                counter: true
+             });
+            
+    </scripts>

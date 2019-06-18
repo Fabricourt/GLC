@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<section class="w3-highway-red  w3-padding-64">
+<section class=" w3-padding-64" style="background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);">
     <div class="row text-center w3-padding-64">
         <div class="col-md-12 ">
           <h1 class="display-4">{{ user.username|capfirst }} Profile</h1>
@@ -30,7 +30,7 @@
             {{ u_form|crispy }}
            </fieldset>
             <div class="form-group w3-white">
-                <button class="btn w3-large w3-round w3-highway-red w3-border-red w3-hover-white " type="submit">Update</button>
+                <button class="btn w3-large w3-round w3-theme w3-border-theme w3-hover-white " type="submit">Update</button>
             </div>
           </div>
           <ul class="social">

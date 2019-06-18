@@ -1,16 +1,16 @@
 {% load static %}
 <!-- Navbar (sit on top) -->
-<div class="w3-top ">
-    <div class="w3-bar w3-white" id="myNavbar">
-      <a href="/" class="w3-bar-item  w3-wide w3-hover-white w3-card w3-highway-blue" style="text-decoration:none;"><i class="fa fa-home  "></i><span><b>GLC</b></span></a>
+<div class="w3-top" >
+    <div class="w3-bar w3-white " id="myNavbar" >
+      <a href="/"   style="text-decoration:none; background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" class="w3-bar-item  w3-wide w3-hover-white w3-card btn  w3-hover-white w3-text-white w3-hover-text-amber"><i class="fa fa-home  "></i><span><b>GLC</b></span></a>
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
         <a href="/about" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;">ABOUT</a>
-        <a href="/gallery" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-red"></i> GALLERY</a>
-        <a href="/contact" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-envelope w3-text-red"></i> CONTACT</a>
+        <a href="{% url 'photos' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-blue"></i> GALLERY</a>
+        <a href="/contact" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-envelope w3-text-blue"></i> CONTACT</a>
         
         {% if user.is_authenticated %}
-        <a href="javascript:{document.getElementById('logout').submit()}" style="text-decoration:none;" class="w3-bar-item w3-highway-red w3-hover-text-white ">
+        <a href="javascript:{document.getElementById('logout').submit()}" style="text-decoration:none; background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" class="w3-bar-item  w3-wide w3-hover-white w3-card btn  w3-hover-white w3-text-white w3-hover-text-amber">
            SIGNOUT
         </a>
         <form action="{% url 'logout' %}" method="POST" id="logout">
@@ -19,7 +19,7 @@
         </form>
 
         {% else %}
-        <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-sign-in w3-text-red"></i> SIGN IN</a>
+        <a href="{% url 'login' %}" style="text-decoration:none; background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" class="w3-bar-item  w3-wide w3-hover-white w3-card btn  w3-hover-white w3-text-white w3-hover-text-amber"" style="text-decoration:none;"><i class="fa fa-sign-in w3-text-red"></i> SIGN IN</a>
         {% endif %}
         
       </div>

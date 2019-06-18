@@ -21,7 +21,7 @@
         <form method='POST' action='.' enctype='multipart/form-data'> {% csrf_token %}
                         
             <div class="form-row ">
-                    <hr class="w3-padding w3-highway-red" style="width: 100%;">
+                    <hr class="w3-padding"  style="width: 100%; background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);">
                     <div class="form-group  col-md-3 mb-0">
                         {{ form.first_name|as_crispy_field }}
                     </div>
@@ -37,7 +37,7 @@
             </div>
               <!-- Alerts -->
   {% include 'partials/_alerts.html' %}
-            <div class="form-group w3-padding w3-highway-blue col-md-110 mb-0">
+            <div class="form-group w3-padding  col-md-110 mb-0" style="background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);">
                     {{ form.message|as_crispy_field }}
             </div>
             <div class="w3-right w3-section"  class="form-actions">

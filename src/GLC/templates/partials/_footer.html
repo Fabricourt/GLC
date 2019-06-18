@@ -5,12 +5,24 @@ a {
 }
 </style>
  
-<footer class="section footer-classic w3-padding context-dark bg-image w3-highway-blue" >
+<footer class="section footer-classic w3-padding context-dark bg-image" style="background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" >
         <div class="container">
           {% for footer in footers %}
           <div class="row row-30">
             <div class="col-md-4 col-xl-5 ">
-              <div class="pr-xl-4"><a class="brand btn w3-padding w3-margin-top w3-border-white w3-hover-white w3-highway-red " href="/" style="text-decoration:none;"><h1><b>GLC</b></h1></a>
+              <div class="pr-xl-4"><a class="brand  w3-padding w3-margin-top w3-border-white w3-hover-white " href="/" style="text-decoration:none;">
+            
+                {% if topbars %}
+                {% for topbar in topbars %}
+                      <span class="w3-container w3-left  w3-hide-small">
+                      
+                            <a href="{% url 'index'%}"> <img src="{{ topbar.logo.url }}" class="w3-bar-item w3-circle w3-margin-top " style="width:100px; height:100px;"></a>
+                      </span>
+                {% endfor %}
+                {% endif %}
+            
+              
+              </a>
                 <p> {{ footer.description|safe }}
                 <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>GLC</span><span>. </span><span>All Rights Reserved.</span></p>
               </div>

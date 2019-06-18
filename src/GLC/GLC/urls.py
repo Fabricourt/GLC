@@ -27,7 +27,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('admin/', admin.site.urls),
     path('team/', include('team.urls')),
-    path('gallery/', include('gallery.urls')),
+    path('gallerys/', include('gallerys.urls')),
     path('accounts/', include('accounts.urls')),
     path('profile/', account_views.profile, name='profile'),
     path('contact/', contact_views.contact, name='contact'),

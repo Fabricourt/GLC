@@ -12,12 +12,14 @@
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 <link href="{% static 'css/profile.css' %}" rel="stylesheet">
 <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+
 <!-- Bootstrap -->
 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{% static 'css/all.css' %}">
 <!--w3.css-->
 <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+<link rel="stylesheet" href="{% static 'css/bluetheme.css' %}">
 <!--w3.css-->
 
 <!--animate.css-->
@@ -42,10 +44,21 @@
 
 
 <body class="w3-white" style="font-family:Verdana, Geneva, Tahoma, sans-serif">
+<style>
+
+h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient( #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+    
+</style>
 <!-- NavBar -->
 {% include 'partials/_navbar.html' %}
 {% include 'partials/_sidebar.html' %}
-
+<div id="home"></div>
 <!--TopBar-->
 {% include 'partials/_topbar.html' %}
 

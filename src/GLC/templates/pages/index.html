@@ -2,76 +2,16 @@
 {% load static %}
 {% block title %} | Home {% endblock %}
 {% block content %}
-<style>
-.hexagon {
-  float: left;
-  overflow: hidden;
-  visibility: hidden;
 
-  -webkit-transform: rotate(120deg);
-  -moz-transform: rotate(120deg);
-  -o-transform: rotate(120deg);
-  -ms-transform: rotate(120deg);
-  transform: rotate(120deg);
-  cursor: pointer;
-}
-.hexagon2 { width: 180px; height: 144px; }
-.hexagon-in1 {
-  overflow: hidden;
-  width: 180px;
-  height: 144px;
+<div id="home"></div>
+<section>
+{% include 'partials/_carousel.html' %}
 
-  -webkit-transform: rotate(-60deg);
-  -moz-transform: rotate(-60deg);
-  -o-transform: rotate(-60deg);
-  -ms-transform: rotate(-60deg);
-  transform: rotate(-60deg);
-}
-.hexagon-in2 {
-  overflow: hidden;
-  width: 180px;
-  height: 144px;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-color: #65a8dd;
-
-  -webkit-background-size: 125%;
-  -moz-background-size: 125%;
-  background-size: 125%;
-  visibility: visible;
-
-  -webkit-transform: rotate(-60deg);
-  -moz-transform: rotate(-60deg);
-  -o-transform: rotate(-60deg);
-  -ms-transform: rotate(-60deg);
-  transform: rotate(-60deg);/**/
-
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-</style>
-
+</section>
 
 <!-- Image header -->
 
 						
-{% if heads %}
-  {% for head in heads %}
-      <header class="w3-display-container w3-margin-bottom w3-card-4 w3-shadow w3-wide" id="home">
-          <img class="w3-image w3-shadow" src="{{ head.home_header.url }}" alt="{{ head.title }}" width="100%" height="1060">
-          <div class="w3-display-bottomleft w3-hide-small w3-hide-medium w3-padding-large">
-            <h1 class="w3-text-white">{{ head.logo_short_name }}</h1>
-            <h1 class=" w3-text-white w3-hide-small"><b>
-              {{ head.motivational_statement }}</b></h1>
-            <h6><button class="w3-button w3-hide w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
-          </div>
-      </header>
-    {% endfor %}
-  {% endif %}
-  
   {% if abouts %}
   <div class="w3-content w3-container w3-padding-large" >
       <h1 class="w3-center w3-margin w3-xxxlarge ">ABOUT GLC</h1>
@@ -85,7 +25,7 @@
    {% endfor %}
 
     <div class="w3-content w3-margin-top w3-center">
-        <a href="/about"><button class="btn w3-highway-red w3-hover-white w3-border-red">Discover More About Us </button></a>
+        <a href="/about"><button  style="background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" class="btn w3-border-blue w3-hover-white w3-text-white w3-hover-text-amber">Discover More About Us </button></a>
     </div>   
   </div>  
   {% endif %}
@@ -99,7 +39,7 @@
               <div class="feature-box-icon   ">
                   <i class="fa fa-pagelines"></i>
               </div>
-              <p> <b class="w3-text-red">{{category.title }}</b> <br>
+              <p> <b class="w3-text-white">{{category.title }}</b> <br>
                   {{ category.statements }}
               </p>
           </div>  
@@ -111,7 +51,7 @@
 <!-- Features -->
 
 <section>   
-  <div class="w3-container w3-highway-blue w3-card w3-row w3-center  w3-padding-64">
+  <div class="w3-container w3-blue w3-card w3-row w3-center  w3-padding-64" style="background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);">
       {% if abouts %}
         {% for numbers in numberss %}  
           <div class="w3-quarter">
@@ -123,8 +63,7 @@
   </div>
 </section>      
 
-    
-  
+
 
 <section class="w3-light-grey w3-padding-large">
     <div class="w3-container w3-margin">
@@ -139,7 +78,7 @@
         <div class="w3-content ">
             <img src="{% static 'img/TEAM-logo.jpg' %}" style="width:400px; height:300px" alt="profiles" class="w3-hide-large w3-hide-small w3-margin-bottom"><br>
           <div class="w3-content w3-right">
-          <a href="/teams"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More Team Members </button></a>
+          <a href="/teams"><button  style="background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" class="btn w3-border-blue w3-hover-white w3-text-white w3-hover-text-amber">View More Team Members </button></a>
           </div>
         </div>
         </div>
@@ -147,38 +86,12 @@
     </div>
 </section>
 
-<!-- Gallery Section -->
-<div class="w3-container w3-margin w3-padding-large w3-hide-small" style="padding:100;" >
-  <h1 class="w3-center w3-text-black w3-xxlarge">OUR PICTURES</h1>
-  <div class="row w3-margin-left" id="myGrid">
-      {% for gallery in gallerys %}
-          <div class="column  w3-margin  w3-hover-shadow  w3-card">
-              <img src="{{ gallery.picture.url }}" style="width:100%; height:300px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"> 
-          </div>
-      {% endfor %}
-     
-      <div class="w3-center w3-content">
-    
-          <a href="/gallery"><button class="btn w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
-      </div>
-  </div>
-</div>
 
-<section class="w3-container w3-center  w3-hide-large w3-margin-bottom w3-padding-large w3-hide-medium" >
-    <h1 class="w3-center w3-text-text-black w3-jumbo ">OUR PICTURES</h1>
-    <div class="w3-content">
-        {% for gallery in gallerys %}
-            <div class="w3-margin w3-content hexagon-container w3-hover-shadow  w3-card">
-                <img src="{{ gallery.picture.url }}" width="100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"> 
-            </div>
-            
-        {% endfor %}
+<section class="w3-margin-bottom">
+    {% include 'partials/_gallery.html' %}
+</section>
+ 
+ 
 
-    </div>   
-    <div class="w3-content w3-center">
-      
-          <a href="/gallery"><button class="btn w3-center w3-highway-red w3-hover-white w3-border-red">View More In Detail </button></a>
-      
-    </div>
-  </section>
+
 {% endblock %}
