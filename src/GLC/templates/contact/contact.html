@@ -13,10 +13,13 @@
 <div class="w3-container w3-margin-bottom w3-content" id="contact" style="margin-bottom:100px;">
     <!--TopBar-->
         <h2>Contact</h2>
-        <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> Chicago, US<br>
-        <i class="fa fa-phone w3-text-red" style="width:30px"></i> Phone: +00 151515<br>
-        <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: mail@mail.com<br>
+        {% for footer in footers %}
+        <i class="fa fa-map-marker w3-text-red" style="width:30px"></i>{{ footer.address|safe }}<br>
+        <dd><a href="tel:#" class="w3-button" style="text-decoration:none;" ><i class="fa fa-phone w3-text-red" style="width:30px"></i>{{ footer.phone1 }}</a>
+        <i class="fa fa-phone w3-text-red" style="width:30px"></i>{{ footer.phone2 }}<br>
+        <i class="fa fa-envelope w3-text-red" style="width:30px"> </i>{{ footer.email }}<br>
         <p>Feel Free To  Contact Us:</p>
+        {% endfor %}
       
         <form method='POST' action='.' enctype='multipart/form-data'> {% csrf_token %}
                         
