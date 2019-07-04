@@ -26,6 +26,7 @@ from contact import views as contact_views
 urlpatterns = [
     path('', include('pages.urls')),
     path('admin/', admin.site.urls),
+    path('events/', include('events.urls')),
     path('team/', include('team.urls')),
     path('gallerys/', include('gallerys.urls')),
     path('accounts/', include('accounts.urls')),

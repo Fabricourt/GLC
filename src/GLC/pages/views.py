@@ -6,8 +6,12 @@ from home.models import Topbar, Head, Footer
 from graduates.models import Graduate
 from team.models import Team
 from gallerys.models import Photo
+from events.models import Event
 from accounts.models import Profile
 from django.contrib.admin.views.decorators import staff_member_required
+from django.views.generic import (
+    ListView,
+)
 
 # Dont Repeat Yourself = DRY
 
@@ -24,6 +28,7 @@ def index(request):
     accounts = Profile.objects.all()
 
     context = {
+        'events': Event.objects.all()[:3],
         'abouts': abouts,
         'graduates': graduates,
         'numberss': numberss,
@@ -37,6 +42,13 @@ def index(request):
     }
     return render(request, 'pages/index.html', context) 
 
+
+class EventListView(ListView):
+    model = Event
+    template_name = 'events/events.html'
+    context_object_name = 'events'
+    ordering = ['-created_on']
+    paginate_by = 5
 
 def about(request):
     teams = Team.objects.order_by('-timestamp').filter(is_published=True)[:4]
