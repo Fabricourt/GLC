@@ -31,13 +31,13 @@
                 </div>
     
         <div class="w3-col m4">
-                {% if photo %}            
+                {% if photo.photo_1 %}            
                   <img src="{{ photo.photo_1.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 imgt" >
                 {% endif %}
         </div>
     
         <div class="w3-col m4">
-                {% if photo %}            
+                {% if photo.photo_2 %}            
                   <img src="{{ photo.photo_2.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 imgt" >
                 {% endif %}
         </div>
@@ -47,21 +47,21 @@
     
       <div class="w3-row-padding w3-center w3-section">
             <div class="w3-col m4">
-                    {% if photo %}            
+                    {% if photo.photo_3 %}            
                       <img src="{{ photo.photo_3.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 imgt">
                     {% endif %}
             </div>
     
 
             <div class="w3-col m4">
-                    {% if photo %}            
+                    {% if photo.photo_6 %}            
                       <img src="{{ photo.photo_4.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity w3-card-4 imgt">
                     {% endif %}
             </div>
     
         <div class="w3-col m4">
                
-                        {% if photo %}            
+                        {% if photo.photo_5 %}            
                           <img src="{{ photo.photo_5.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity imgt w3-card-4">
                         {% endif %}
                 </div>
@@ -70,7 +70,7 @@
     <div class="w3-row-padding w3-center w3-section">
                 <div class="w3-col m4">
                
-                        {% if photo %}            
+                        {% if photo.photo_6 %}            
                           <img src="{{ photo.photo_6.url }}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity imgt w3-card-4">
                         {% endif %}
                 </div>

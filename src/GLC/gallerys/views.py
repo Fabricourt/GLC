@@ -23,7 +23,7 @@ def index(request):
 
 
 
-def photo_detail(request, photo_id):
+def photo(request, photo_id):
   photo = get_object_or_404(Photo, pk=photo_id)
   topbars = Topbar.objects.order_by('-reload').filter(is_published=True)[:1]
   footers = Footer.objects.order_by('-reload').filter(is_published=True)[:1]
