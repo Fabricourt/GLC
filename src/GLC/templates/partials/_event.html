@@ -50,9 +50,9 @@
 }
 </style>
 <div class="container">
-   <h3 class="pb-3 mb-4 font-italic border-bottom">
-		EVENTS 
-   </h3>
+   <h1 class="pb-3 mb-4 font-italic w3-bottombar w3-border-blue">
+		UPCOMING EVENTS 
+   </h1>
    <div class="row">
 	{% for event in events %}
       <div class="col-md-6">
@@ -73,12 +73,15 @@
 			   <p class="mb-0 w3-small">
 					<b>Contact</b>-{{ event.event_contact_person }}-{{ event.event_contact }}
 			   </p>
-			   <a class="btn btn-outline-primary btn-sm w3-right" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
+			   <a class="btn btn-outline-primary btn-sm w3-right" role="button" href="{% url 'event' event.id %}">Continue reading</a>
 
             </div>
             <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="{{ event.event_pic.url }} " style="width: 200px; height: 250px;">
          </div>
 	  </div>
-	{% endfor %}
+    {% endfor %}
+    <div class="w3-content w3-margin-top w3-margin-bottom w3-center">
+        <a href="{% url 'events' %}"><button  style="background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" class="btn w3-border-blue w3-hover-white w3-text-white w3-hover-text-amber">View More Events </button></a>
+    </div> 
 	</div>
 </div>

@@ -3,6 +3,7 @@
 {% block title %} |About {% endblock %}
 {% block content %}
 
+
 <section>
 {% if abouts %}
  <!-- About Section -->
@@ -16,6 +17,23 @@
                   </header>
     {% endfor %}
 
+    <section class="w3-white w3-padding-large w3-margin-top " id="templatemo_features">
+   
+      <div class="container-fluid ">
+          {% for category in categorys %}
+        <div class="col-sm-6 col-lg-3 feature-box">
+            <div class="feature-box-inner w3-hover-blue">
+                <div class="feature-box-icon   ">
+                    <i class="fa fa-pagelines"></i>
+                </div>
+                <p> <b class="w3-text-white">{{category.title }}</b> <br>
+                    {{ category.statements }}
+                </p>
+            </div>  
+          </div>
+        {% endfor %}
+      </div>
+    </section>
     {% for about in abouts %}
       <div class="w3-content w3-container w3-padding-large">
           

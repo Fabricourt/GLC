@@ -6,10 +6,11 @@
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
         <a href="/about" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;">ABOUT</a>
+        <a href="{% url 'events' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-star w3-text-blue"></i> EVENTS</a>
         <a href="{% url 'photos' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-th w3-text-blue"></i> GALLERY</a>
-        <a href="/contact" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-envelope w3-text-blue"></i> CONTACT</a>
-        
+     
         {% if user.is_authenticated %}
+        <a href="{% url 'contact' %}" class="w3-bar-item w3-button w3-hover-white" style="text-decoration:none;"><i class="fa fa-envelope w3-text-blue"></i> CONTACT</a>
         <a href="javascript:{document.getElementById('logout').submit()}" style="text-decoration:none; background-image: linear-gradient(to bottom, #5be8ee, #00b4d6, #0080b6, #004e8e, #061d5c);" class="w3-bar-item  w3-wide w3-hover-white w3-card btn  w3-hover-white w3-text-white w3-hover-text-amber">
            SIGNOUT
         </a>

@@ -8,6 +8,8 @@ from team.models import Team
 from gallerys.models import Photo
 from events.models import Event
 from accounts.models import Profile
+from announcements.models import Announcement
+from contact.models import Contact
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import (
     ListView,
@@ -24,7 +26,7 @@ def index(request):
     heads = Head.objects.order_by('-reload').filter(is_published=True)[:1]
     footers = Footer.objects.order_by('-reload').filter(is_published=True)[:1]
     categorys = category.objects.order_by('-reload').filter(is_published=True)[:4]
-    photos = Photo.objects.order_by('-reload').filter(is_published=True)[:6]
+    photos = Photo.objects.order_by('-reload').filter(is_published=True)[:8]
     accounts = Profile.objects.all()
 
     context = {
@@ -52,10 +54,10 @@ class EventListView(ListView):
 
 def about(request):
     teams = Team.objects.order_by('-timestamp').filter(is_published=True)[:4]
-    topbars = Topbar.objects.order_by('-reload').filter(is_published=True)[:1]
     abouts = About.objects.order_by('-reload').filter(is_published=True)[:1]
     headers = header.objects.order_by('-reload').filter(is_published=True)[:1]
     categorys = category.objects.order_by('reload').filter(is_published=True)
+    topbars = Topbar.objects.order_by('-reload').filter(is_published=True)[:1]
     footers = Footer.objects.order_by('-reload').filter(is_published=True)[:1]
     
     context = {
@@ -79,3 +81,43 @@ def tablet(request):
 @staff_member_required
 def laptop(request):
     return render(request, 'pages/laptop.html') 
+
+@staff_member_required
+def dashboard(request):
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+    announcements = Announcement.objects.order_by('-timestamp').filter(is_published=True)[:10]
+    topbars = Topbar.objects.order_by('-reload').filter(is_published=True)[:1]
+    footers = Footer.objects.order_by('-reload').filter(is_published=True)[:1]
+    contacts = Contact.objects.order_by('-timestamp').filter(is_published=True)[:4]
+    num_teams = Team.objects.count()
+    num_contacts = Contact.objects.count()
+    num_announcements = Announcement.objects.count()
+    num_events = Event.objects.count()
+    num_photos = Photo.objects.count()
+    num_profiles = Profile.objects.count()
+
+    context = {
+        'contacts': contacts, 
+        'num_profiles' : num_profiles,
+        'num_teams': num_teams,
+        'num_photos': num_photos,
+        'num_contacts': num_contacts,
+        'num_events': num_events,
+        'announcements': announcements,
+        'topbars': topbars,
+        'footers': footers,
+        
+    }
+    return render(request, 'pages/dashboard.html', context=context) 
+
+    def message(request):
+         contact = get_object_or_404(Event, pk=event_id)
+         context = {
+             'contact':contact
+
+         }
+         return render(request, 'pages/contact.html', context)
+ 
+    
+  

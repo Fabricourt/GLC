@@ -11,8 +11,8 @@ class Event(models.Model):
     event_detail = RichTextField(blank=False, null=True)
     event_date = models.DateTimeField(blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
-    event_contact_person = models.CharField(max_length=200, unique=True, blank=True, null=True)
-    event_contact = models.CharField(max_length=200, unique=True, blank=True, null=True)
+    contact_us = models.ForeignKey(User, on_delete= models.CASCADE,blank=True, null=True)
+    contact_location = models.CharField(max_length=200, unique=True, blank=True, null=True)
     timestamp = models.DateTimeField(default=timezone.now)    
     is_published = models.BooleanField(default=True)
     class Meta:
@@ -38,8 +38,8 @@ class Event(models.Model):
 
         img = Image.open(self.image.path)
 
-        if img.height > 150 or img.width > 150:
-            output_size = (150, 150)
+        if img.height > 650 or img.width > 950:
+            output_size = (650, 950)
             img.thumbnail(output_size)
             img.save(self.image.path)
 

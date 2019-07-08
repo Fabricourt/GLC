@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Events {% endblock %}
+{% block content %}
+
+
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <img src="{{ event.event_pic.url }}" alt="Nature" style="width:100%">
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>{{ event.event_name }}</b></h3>
+      <h5>Event Date</h5>
+      <span class="w3-xlarge w3-card-4 w3-flat-wisteria w3-tag">{{ event.monthevent }}</span>
+      <span class="w3-xlarge w3-card-4 w3-flat-wisteria w3-tag">{{ event.dayevent }}</span>
+      <span class="w3-xlarge w3-card-4 w3-flat-wisteria w3-tag">{{ event.yearevent }}</span>
+    </div>
+
+    <div class="w3-container">
+      <p>{{ event.event_detail|safe }}</p>
+      <div class="w3-row">
+      </div>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card-4 w3-win8-mauve w3-margin w3-margin-top">
+    <div class = "container">
+        <div class = "row">
+            <div class="col-sm-4">
+                 <img src="{{ event.contact_us.profile.image.url }}" class="w3-circle w3-margin" style="width:100px; height:100px;">
+            </div>
+        <div class="col-sm-8" >
+                <h4 class="w3-center w3-padding  w3-margin w3-large">{{ event.event_name }} Event Contact Person</h4>
+            </div>
+        </div>    
+    </div>
+ 
+    <div class="w3-container ">
+      <h4><b>{{ event.contact_us.username|capfirst }}</b></h4>
+      <hr class="w3-white" style="width:100%;">
+      <p> Phone {{ event.contact_us.profile.phone_1 }} </p>
+      <p> Whatsapp {{ event.contact_us.profile.whatsapp_number }}</p>
+      <p> Email {{ event.contact_us.email }} </p>
+    </div>
+  </div><hr>
+  
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Other Events</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      {% for event in events %}
+      <li class="w3-padding-16">
+        <img src="{{ event.event_pic.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">{{ event.event_name }}<a class="btn btn-outline-primary btn-sm w3-right" role="button" href="{% url 'event' event.id %}">Continue reading</a></span><br>
+        <span></span>
+      </li>
+      {%  endfor %}
+ 
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="w3-card w3-hide w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+{% endblock %}
