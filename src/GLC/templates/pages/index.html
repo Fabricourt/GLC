@@ -34,11 +34,8 @@
 </section>	
 <!-- Container (About Section) -->
 
-<section class="w3-metro-light-blue w3-padding-64">
-  <div class="container">
-      {% include 'partials/_event.html' %}
-  </div>
-</section>
+
+{% include 'partials/_event.html' %}
 
 
 
@@ -82,12 +79,6 @@
     <br><br><br>
 </section>
 
-<section>
-    <div class="w3-margin w3-padding-64">
-        {{ JoinForm|crispy }}
-    </div>
-    <br><br><br>
-  </section>
 <section class="w3-metro-darken w3-padding-large ">
     {% if photos %}
   
