@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'graduates',
     'events',
     'home',
-    'newsletter',
+
     'patients',
     'pages',
     'reports',

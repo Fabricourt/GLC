@@ -11,7 +11,7 @@ from accounts.models import Profile
 from announcements.models import Announcement
 from contact.models import Contact
 from django.contrib.admin.views.decorators import staff_member_required
-from newsletter.forms import JoinForm
+
 from django.views.generic import (
     View,
     ListView,
@@ -122,11 +122,3 @@ def dashboard(request):
          }
          return render(request, 'pages/contact.html', context)
  
-    
-"""class HomeView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, "pages/index.html", {})"""
-
-class IndexView(FormView):
-    template_name ='pages/index.html'
-    form_class = JoinForm
